@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
-import { useState } from 'react';
 import { ModeToggle } from './components/mode-toggle';
 import { questions } from './lib/questions';
+import { usePersistedState } from './hooks/use-persisted-state';
 
 const Figure5_1 = () => (
   <svg viewBox='0 0 400 300' className='mx-auto w-full max-w-lg'>
@@ -241,56 +241,79 @@ const getFigure = (figureId: string) => {
   }
 };
 
+interface QuizState {
+  answeredQuestions: number[];
+  correctAnswers: number;
+  currentQuestion: number;
+  selectedAnswer: number | null;
+  showFeedback: boolean;
+}
+
 const App = () => {
-  const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
-  const [answers, setCorrectAnswers] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-  const [showFeedback, setShowFeedback] = useState(false);
+  const [quizState, setQuizState] = usePersistedState<QuizState>(
+    'quiz-state',
+    {
+      answeredQuestions: [],
+      correctAnswers: 0,
+      currentQuestion: 0,
+      selectedAnswer: null,
+      showFeedback: false
+    }
+  );
+
+  const answeredQuestionsSet = new Set(quizState.answeredQuestions);
 
   const handleAnswerClick = (answerIndex: number) => {
-    setSelectedAnswer(answerIndex);
-    setShowFeedback(true);
-
-    if (!answeredQuestions.has(currentQuestion)) {
-      setAnsweredQuestions((prev) => {
-        const newSet = new Set(prev);
-        newSet.add(currentQuestion);
-        return newSet;
+    if (!answeredQuestionsSet.has(quizState.currentQuestion)) {
+      setQuizState({
+        selectedAnswer: answerIndex,
+        showFeedback: true,
+        answeredQuestions: [...quizState.answeredQuestions, quizState.currentQuestion],
+        correctAnswers: 
+          answerIndex === questions[quizState.currentQuestion].answer
+            ? quizState.correctAnswers + 1
+            : quizState.correctAnswers
       });
-
-      if (answerIndex === questions[currentQuestion].answer) {
-        setCorrectAnswers((prev) => prev + 1);
-      }
+    } else {
+      setQuizState({
+        selectedAnswer: answerIndex,
+        showFeedback: true
+      });
     }
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer(null);
-      setShowFeedback(false);
+    if (quizState.currentQuestion < questions.length - 1) {
+      setQuizState({
+        currentQuestion: quizState.currentQuestion + 1,
+        selectedAnswer: null,
+        showFeedback: false
+      });
     }
   };
 
   const handlePrevQuestion = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-      setSelectedAnswer(null);
-      setShowFeedback(false);
+    if (quizState.currentQuestion > 0) {
+      setQuizState({
+        currentQuestion: quizState.currentQuestion - 1,
+        selectedAnswer: null,
+        showFeedback: false
+      });
     }
   };
 
   const handleReset = () => {
-    setCurrentQuestion(0);
-    setSelectedAnswer(null);
-    setShowFeedback(false);
-    setAnsweredQuestions(new Set());
-    setCorrectAnswers(0);
+    setQuizState({
+      answeredQuestions: [],
+      correctAnswers: 0,
+      currentQuestion: 0,
+      selectedAnswer: null,
+      showFeedback: false
+    });
   };
 
-  const currentQ = questions[currentQuestion];
-  const isCorrect = selectedAnswer === currentQ.answer;
+  const currentQ = questions[quizState.currentQuestion];
+  const isCorrect = quizState.selectedAnswer === currentQ.answer;
 
   return (
     <>
@@ -304,12 +327,12 @@ const App = () => {
         <div className='m-4'>
           <div className='mb-4 flex items-center justify-between'>
             <span className='text-muted-foreground text-sm'>
-              Question {currentQuestion + 1} of {questions.length}
+              Question {quizState.currentQuestion + 1} of {questions.length}
             </span>
-            {answeredQuestions.size !== 0 ? <div className='text-muted-foreground text-sm'>
-              {answeredQuestions.size} answered
-              {answeredQuestions.size > 0 &&
-                ` (${Math.round((answers / answeredQuestions.size) * 100)}% correct)`}
+            {answeredQuestionsSet.size !== 0 ? <div className='text-muted-foreground text-sm'>
+              {answeredQuestionsSet.size} answered
+              {answeredQuestionsSet.size > 0 &&
+                ` (${Math.round((quizState.correctAnswers / answeredQuestionsSet.size) * 100)}% correct)`}
             </div> : null}
           </div>
 
@@ -328,19 +351,19 @@ const App = () => {
                   key={index}
                   onClick={() => handleAnswerClick(index)}
                   className={`w-full rounded border p-3 text-left transition-colors ${
-                    selectedAnswer === index
-                      ? showFeedback
+                    quizState.selectedAnswer === index
+                      ? quizState.showFeedback
                         ? isCorrect
                           ? 'border-green-500 bg-green-500/10 dark:bg-green-500/20'
                           : 'border-red-500 bg-red-500/10 dark:bg-red-500/20'
                         : 'border-blue-500 bg-blue-500/10 dark:bg-blue-500/20'
                       : 'hover:bg-muted/50'
                   } ${
-                    showFeedback && index === currentQ.answer
+                    quizState.showFeedback && index === currentQ.answer
                       ? 'border-green-500 bg-green-500/10 dark:bg-green-500/20'
                       : ''
                   } `}
-                  disabled={showFeedback}
+                  disabled={quizState.showFeedback}
                 >
                   {String.fromCharCode(65 + index)}. {option}
                 </button>
@@ -352,7 +375,7 @@ const App = () => {
             <Button
               variant='outline'
               onClick={handlePrevQuestion}
-              disabled={currentQuestion === 0}
+              disabled={quizState.currentQuestion === 0}
               className='flex items-center'
             >
               <ChevronLeft className='mr-2 h-4 w-4' />
@@ -371,7 +394,7 @@ const App = () => {
             <Button
               variant='outline'
               onClick={handleNextQuestion}
-              disabled={currentQuestion === questions.length - 1}
+              disabled={quizState.currentQuestion === questions.length - 1}
               className='flex items-center'
             >
               Next

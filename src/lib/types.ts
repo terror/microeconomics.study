@@ -4,4 +4,4 @@ export type Question = {
   options: string[];
   answer: number;
   figure?: string;
-}
+};
