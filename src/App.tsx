@@ -1,8 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import { ModeToggle } from './components/mode-toggle';
-import { questions } from './lib/questions';
 import { usePersistedState } from './hooks/use-persisted-state';
+import { questions as originalQuestions } from './lib/questions';
 
 const Figure5_1 = () => (
   <svg viewBox='0 0 400 300' className='mx-auto w-full max-w-lg'>
@@ -38,22 +38,39 @@ const Figure5_1 = () => (
       markerEnd='url(#arrowhead)'
     />
 
-    <path d='M 50 200 L 350 100' className='stroke-foreground' strokeWidth='2' fill='none' />
-    <text x='360' y='100' className='text-sm fill-foreground'>
+    <path
+      d='M 50 200 L 350 100'
+      className='stroke-foreground'
+      strokeWidth='2'
+      fill='none'
+    />
+    <text x='360' y='100' className='fill-foreground text-sm'>
       Supply
     </text>
 
-    <path d='M 50 100 L 350 200' className='stroke-foreground' strokeWidth='2' fill='none' />
-    <text x='360' y='200' className='text-sm fill-foreground'>
+    <path
+      d='M 50 100 L 350 200'
+      className='stroke-foreground'
+      strokeWidth='2'
+      fill='none'
+    />
+    <text x='360' y='200' className='fill-foreground text-sm'>
       Demand
     </text>
 
-    <text x='30' y='80' className='text-sm fill-foreground'>
+    <text x='30' y='80' className='fill-foreground text-sm'>
       P₂
     </text>
-    <line x1='45' y1='80' x2='350' y2='80' className='stroke-muted' strokeDasharray='4' />
+    <line
+      x1='45'
+      y1='80'
+      x2='350'
+      y2='80'
+      className='stroke-muted'
+      strokeDasharray='4'
+    />
 
-    <text x='30' y='150' className='text-sm fill-foreground'>
+    <text x='30' y='150' className='fill-foreground text-sm'>
       P₀
     </text>
     <line
@@ -65,7 +82,7 @@ const Figure5_1 = () => (
       strokeDasharray='4'
     />
 
-    <text x='30' y='220' className='text-sm fill-foreground'>
+    <text x='30' y='220' className='fill-foreground text-sm'>
       P₃
     </text>
     <line
@@ -77,12 +94,19 @@ const Figure5_1 = () => (
       strokeDasharray='4'
     />
 
-    <text x='80' y='270' className='text-sm fill-foreground'>
+    <text x='80' y='270' className='fill-foreground text-sm'>
       A
     </text>
-    <line x1='80' y1='245' x2='80' y2='80' className='stroke-muted' strokeDasharray='4' />
+    <line
+      x1='80'
+      y1='245'
+      x2='80'
+      y2='80'
+      className='stroke-muted'
+      strokeDasharray='4'
+    />
 
-    <text x='120' y='270' className='text-sm fill-foreground'>
+    <text x='120' y='270' className='fill-foreground text-sm'>
       B
     </text>
     <line
@@ -94,7 +118,7 @@ const Figure5_1 = () => (
       strokeDasharray='4'
     />
 
-    <text x='200' y='270' className='text-sm fill-foreground'>
+    <text x='200' y='270' className='fill-foreground text-sm'>
       F
     </text>
     <line
@@ -106,7 +130,7 @@ const Figure5_1 = () => (
       strokeDasharray='4'
     />
 
-    <text x='280' y='270' className='text-sm fill-foreground'>
+    <text x='280' y='270' className='fill-foreground text-sm'>
       D
     </text>
     <line
@@ -118,7 +142,7 @@ const Figure5_1 = () => (
       strokeDasharray='4'
     />
 
-    <text x='320' y='270' className='text-sm fill-foreground'>
+    <text x='320' y='270' className='fill-foreground text-sm'>
       C
     </text>
     <line
@@ -130,15 +154,15 @@ const Figure5_1 = () => (
       strokeDasharray='4'
     />
 
-    <text x='30' y='40' className='text-sm fill-foreground'>
+    <text x='30' y='40' className='fill-foreground text-sm'>
       $
     </text>
-    <text x='180' y='290' className='text-sm fill-foreground'>
+    <text x='180' y='290' className='fill-foreground text-sm'>
       Quantity
     </text>
 
     <circle cx='200' cy='150' r='4' className='fill-foreground' />
-    <text x='210' y='145' className='text-sm fill-foreground'>
+    <text x='210' y='145' className='fill-foreground text-sm'>
       E
     </text>
   </svg>
@@ -156,8 +180,22 @@ const Figure7_1 = () => (
         className='stroke-muted'
         strokeWidth='1'
       />
-      <line x1='40' y1='280' x2='360' y2='280' className='stroke-foreground' strokeWidth='2' />
-      <line x1='40' y1='20' x2='40' y2='280' className='stroke-foreground' strokeWidth='2' />
+      <line
+        x1='40'
+        y1='280'
+        x2='360'
+        y2='280'
+        className='stroke-foreground'
+        strokeWidth='2'
+      />
+      <line
+        x1='40'
+        y1='20'
+        x2='40'
+        y2='280'
+        className='stroke-foreground'
+        strokeWidth='2'
+      />
 
       <g className='stroke-muted/30' strokeWidth='1'>
         <line x1='40' y1='150' x2='360' y2='150' />
@@ -170,14 +208,14 @@ const Figure7_1 = () => (
         fill='none'
         strokeWidth='2'
       />
-      <text x='250' y='80' className='text-sm fill-foreground'>
+      <text x='250' y='80' className='fill-foreground text-sm'>
         Total Product
       </text>
 
-      <text x='20' y='150' className='text-sm fill-foreground'>
+      <text x='20' y='150' className='fill-foreground text-sm'>
         Total Product
       </text>
-      <text x='180' y='300' className='text-sm fill-foreground'>
+      <text x='180' y='300' className='fill-foreground text-sm'>
         Units of Labour
       </text>
     </g>
@@ -192,8 +230,22 @@ const Figure7_1 = () => (
         className='stroke-muted'
         strokeWidth='1'
       />
-      <line x1='40' y1='280' x2='360' y2='280' className='stroke-foreground' strokeWidth='2' />
-      <line x1='40' y1='20' x2='40' y2='280' className='stroke-foreground' strokeWidth='2' />
+      <line
+        x1='40'
+        y1='280'
+        x2='360'
+        y2='280'
+        className='stroke-foreground'
+        strokeWidth='2'
+      />
+      <line
+        x1='40'
+        y1='20'
+        x2='40'
+        y2='280'
+        className='stroke-foreground'
+        strokeWidth='2'
+      />
 
       <g className='stroke-muted/30' strokeWidth='1'>
         <line x1='40' y1='150' x2='360' y2='150' />
@@ -206,7 +258,7 @@ const Figure7_1 = () => (
         fill='none'
         strokeWidth='2'
       />
-      <text x='250' y='80' className='text-sm fill-foreground'>
+      <text x='250' y='80' className='fill-foreground text-sm'>
         Marginal Product
       </text>
 
@@ -216,14 +268,14 @@ const Figure7_1 = () => (
         fill='none'
         strokeWidth='2'
       />
-      <text x='250' y='140' className='text-sm fill-foreground'>
+      <text x='250' y='140' className='fill-foreground text-sm'>
         Average Product
       </text>
 
-      <text x='20' y='150' className='text-sm fill-foreground'>
+      <text x='20' y='150' className='fill-foreground text-sm'>
         MP, AP
       </text>
-      <text x='180' y='300' className='text-sm fill-foreground'>
+      <text x='180' y='300' className='fill-foreground text-sm'>
         Units of Labour
       </text>
     </g>
@@ -241,24 +293,66 @@ const getFigure = (figureId: string) => {
   }
 };
 
+interface RandomizedQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  originalIndices: number[];
+  correctIndex: number;
+  figure?: string;
+}
+
 interface QuizState {
   answeredQuestions: number[];
   correctAnswers: number;
   currentQuestion: number;
   selectedAnswer: number | null;
   showFeedback: boolean;
+  randomizedQuestions: RandomizedQuestion[];
 }
+
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+};
+
+const randomizeQuestions = () => {
+  const shuffledQuestions = shuffleArray([...originalQuestions]);
+
+  return shuffledQuestions.map((q) => {
+    const indices = q.options.map((_, idx) => idx);
+    const shuffledIndices = shuffleArray(indices);
+
+    return {
+      id: q.id,
+      question: q.question,
+      options: shuffledIndices.map((i) => q.options[i]),
+      originalIndices: shuffledIndices,
+      correctIndex: shuffledIndices.indexOf(q.answer),
+      figure: q.figure,
+    };
+  });
+};
+
+const INITIAL_STATE: QuizState = {
+  answeredQuestions: [],
+  correctAnswers: 0,
+  currentQuestion: 0,
+  selectedAnswer: null,
+  showFeedback: false,
+  randomizedQuestions: randomizeQuestions(),
+};
 
 const App = () => {
   const [quizState, setQuizState] = usePersistedState<QuizState>(
     'quiz-state',
-    {
-      answeredQuestions: [],
-      correctAnswers: 0,
-      currentQuestion: 0,
-      selectedAnswer: null,
-      showFeedback: false
-    }
+    INITIAL_STATE
   );
 
   const answeredQuestionsSet = new Set(quizState.answeredQuestions);
@@ -268,26 +362,30 @@ const App = () => {
       setQuizState({
         selectedAnswer: answerIndex,
         showFeedback: true,
-        answeredQuestions: [...quizState.answeredQuestions, quizState.currentQuestion],
-        correctAnswers: 
-          answerIndex === questions[quizState.currentQuestion].answer
+        answeredQuestions: [
+          ...quizState.answeredQuestions,
+          quizState.currentQuestion,
+        ],
+        correctAnswers:
+          answerIndex ===
+          quizState.randomizedQuestions[quizState.currentQuestion].correctIndex
             ? quizState.correctAnswers + 1
-            : quizState.correctAnswers
+            : quizState.correctAnswers,
       });
     } else {
       setQuizState({
         selectedAnswer: answerIndex,
-        showFeedback: true
+        showFeedback: true,
       });
     }
   };
 
   const handleNextQuestion = () => {
-    if (quizState.currentQuestion < questions.length - 1) {
+    if (quizState.currentQuestion < quizState.randomizedQuestions.length - 1) {
       setQuizState({
         currentQuestion: quizState.currentQuestion + 1,
         selectedAnswer: null,
-        showFeedback: false
+        showFeedback: false,
       });
     }
   };
@@ -297,27 +395,31 @@ const App = () => {
       setQuizState({
         currentQuestion: quizState.currentQuestion - 1,
         selectedAnswer: null,
-        showFeedback: false
+        showFeedback: false,
       });
     }
   };
 
   const handleReset = () => {
-    setQuizState({
-      answeredQuestions: [],
-      correctAnswers: 0,
-      currentQuestion: 0,
-      selectedAnswer: null,
-      showFeedback: false
-    });
+    const newState = {
+      ...INITIAL_STATE,
+      randomizedQuestions: randomizeQuestions(),
+    };
+
+    setQuizState(newState);
   };
 
-  const currentQ = questions[quizState.currentQuestion];
-  const isCorrect = quizState.selectedAnswer === currentQ.answer;
+  if (!quizState.randomizedQuestions?.length) {
+    setQuizState(INITIAL_STATE);
+    return null;
+  }
+
+  const currentQ = quizState.randomizedQuestions[quizState.currentQuestion];
+  const isCorrect = quizState.selectedAnswer === currentQ.correctIndex;
 
   return (
     <>
-      <div className='flex items-center m-4 font-bold'>
+      <div className='m-4 flex items-center font-bold'>
         <a href='/'>microeconomics.study</a>
         <div className='ml-auto'>
           <ModeToggle />
@@ -326,14 +428,17 @@ const App = () => {
       <div className='mx-auto max-w-4xl p-4'>
         <div className='m-4'>
           <div className='mb-4 flex items-center justify-between'>
-            <span className='text-muted-foreground text-sm'>
-              Question {quizState.currentQuestion + 1} of {questions.length}
+            <span className='text-sm text-muted-foreground'>
+              Question {quizState.currentQuestion + 1} of{' '}
+              {quizState.randomizedQuestions.length}
             </span>
-            {answeredQuestionsSet.size !== 0 ? <div className='text-muted-foreground text-sm'>
-              {answeredQuestionsSet.size} answered
-              {answeredQuestionsSet.size > 0 &&
-                ` (${Math.round((quizState.correctAnswers / answeredQuestionsSet.size) * 100)}% correct)`}
-            </div> : null}
+            {answeredQuestionsSet.size !== 0 ? (
+              <div className='text-sm text-muted-foreground'>
+                {answeredQuestionsSet.size} answered
+                {answeredQuestionsSet.size > 0 &&
+                  ` (${Math.round((quizState.correctAnswers / answeredQuestionsSet.size) * 100)}% correct)`}
+              </div>
+            ) : null}
           </div>
 
           <div className='mb-6'>
@@ -359,7 +464,7 @@ const App = () => {
                         : 'border-blue-500 bg-blue-500/10 dark:bg-blue-500/20'
                       : 'hover:bg-muted/50'
                   } ${
-                    quizState.showFeedback && index === currentQ.answer
+                    quizState.showFeedback && index === currentQ.correctIndex
                       ? 'border-green-500 bg-green-500/10 dark:bg-green-500/20'
                       : ''
                   } `}
@@ -394,7 +499,10 @@ const App = () => {
             <Button
               variant='outline'
               onClick={handleNextQuestion}
-              disabled={quizState.currentQuestion === questions.length - 1}
+              disabled={
+                quizState.currentQuestion ===
+                quizState.randomizedQuestions.length - 1
+              }
               className='flex items-center'
             >
               Next
@@ -405,6 +513,6 @@ const App = () => {
       </div>
     </>
   );
-}
+};
 
 export default App;
