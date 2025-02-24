@@ -420,7 +420,7 @@ const App = () => {
   return (
     <>
       <div className='m-4 flex items-center font-bold'>
-        <a href='/'>microeconomics.study</a>
+        <a href='/microeconomics.study'>microeconomics.study</a>
         <div className='ml-auto'>
           <ModeToggle />
         </div>
