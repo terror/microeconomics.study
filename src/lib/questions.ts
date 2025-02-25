@@ -1879,4 +1879,293 @@ export const questions: Question[] = [
     category: 'final',
     answer: 0,
   },
+  // o1-generated midterm questions
+  {
+    id: 146,
+    question:
+      'Refer to Figure 3-1. Suppose the diagram shows the market for bicycles. If a price floor is set at P2, above the market-clearing price, which of the following is the most likely outcome?',
+    options: [
+      'A shortage of bicycles occurs, as quantity demanded exceeds quantity supplied at P2.',
+      'A surplus of bicycles occurs, as quantity supplied exceeds quantity demanded at P2.',
+      'There is no effect; the market remains in equilibrium at P2.',
+      'The demand curve shifts to the left, lowering equilibrium quantity below P2.',
+      'The government must subsidize production to reach equilibrium at P2.',
+    ],
+    category: 'midterm',
+    answer: 1,
+    figure: 'figure-3-1',
+  },
+  {
+    id: 147,
+    question:
+      'Which of the following statements best describes the principle of diminishing marginal returns in production?',
+    options: [
+      'Hiring each additional unit of labour eventually increases output by larger and larger increments.',
+      'Beyond some point, each additional unit of a variable factor adds less to total output than the previous unit.',
+      'Total output is negative when marginal returns are diminishing.',
+      'Fixed factors of production become variable over time.',
+      'The marginal product of labour is always negative in the short run.',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  {
+    id: 148,
+    question:
+      'Refer to Figure 4-2. Suppose both demand curves (D1 and D2) pass through the same point A. D1 is steeper than D2. Which of the following statements is true at point A?',
+    options: [
+      'Demand D1 is more elastic than D2 at point A.',
+      'Demand D2 is perfectly inelastic at point A.',
+      'Demand D1 is less elastic than D2 at point A.',
+      'Both curves have identical elasticity at point A.',
+      'Both curves are unit elastic at point A.',
+    ],
+    category: 'midterm',
+    answer: 2,
+    figure: 'figure-4-2',
+  },
+  {
+    id: 149,
+    question:
+      'Suppose a consumer allocates her income between two goods, X and Y, to maximize utility. If the marginal utility per dollar spent on good X is currently greater than that on good Y, to increase her total utility she should',
+    options: [
+      'buy more of good Y and less of good X.',
+      'buy more of good X and less of good Y.',
+      'not change her buying behavior because total utility is always maximized at equilibrium.',
+      'buy less of both goods until the marginal utilities are zero.',
+      'buy more of both goods if she can borrow additional income.',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  {
+    id: 150,
+    question:
+      'Refer to Figure 6-2. The diagram shows two indifference curves (IC1 and IC2) for goods X and Y, with IC2 lying above IC1. If the consumer is currently at point E on IC2, which statement must be true?',
+    options: [
+      'The consumer obtains the same utility at point E as at any point on IC1.',
+      'The consumer cannot afford point E unless the price of Y rises.',
+      'Any point on IC1 yields more utility than point E.',
+      'Point E is unaffordable if both goods have positive prices.',
+      'Point E yields higher utility than any point on IC1, assuming both curves lie within the budget constraint.',
+    ],
+    category: 'midterm',
+    answer: 4,
+    figure: 'figure-6-2',
+  },
+  {
+    id: 151,
+    question:
+      'When the price of a normal good increases, the substitution effect decreases the quantity demanded while the income effect also decreases the quantity demanded. In the case of an inferior good, how does the income effect compare?',
+    options: [
+      'It works in the same direction and reinforces the substitution effect.',
+      'It partially offsets the substitution effect because it tends to increase the quantity demanded.',
+      'It fully offsets the substitution effect so that there is no change in quantity demanded.',
+      'It cannot be analyzed without knowing cross-price elasticities.',
+      'It always dominates the substitution effect, causing an increase in total expenditure.',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  {
+    id: 152,
+    question:
+      'Refer to Figure 7-2. If total product is increasing at a decreasing rate, which of the following statements is correct about the marginal product of labour (MP)?',
+    options: [
+      'MP is zero.',
+      'MP is constant and above average product.',
+      'MP is positive but declining.',
+      'MP is at its maximum value.',
+      'MP must be below average product.',
+    ],
+    category: 'midterm',
+    answer: 2,
+    figure: 'figure-7-2',
+  },
+  {
+    id: 153,
+    question:
+      'If a firm is using two inputs, labour (L) and capital (K), and finds that MPL/PL is greater than MPK/PK, it should',
+    options: [
+      'purchase more capital and hire fewer workers to minimize cost.',
+      'hire more labour and purchase less capital to minimize cost.',
+      'stop production, as no factor combination can be cost-minimizing at that ratio.',
+      'hire more labour only if the wage rises.',
+      'purchase more capital only if the rental rate of capital rises.',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  {
+    id: 154,
+    question:
+      'A firm pays $10,000 monthly in wages and $2,000 monthly for raw materials. It also uses a building it owns, which it could otherwise rent out for $2,500 per month. Which of the following statements is correct?',
+    options: [
+      'The firm’s explicit cost is $2,500 per month.',
+      'The firm’s implicit cost is $12,000 per month.',
+      'The firm’s total opportunity cost is $14,500 per month.',
+      'The firm’s explicit cost is $14,500 per month.',
+      'The $2,500 is a sunk cost and can be ignored.',
+    ],
+    category: 'midterm',
+    answer: 2,
+  },
+  {
+    id: 155,
+    question:
+      'Which statement best summarizes the distinction between the short run and the long run in the theory of the firm?',
+    options: [
+      'In the short run, the demand curve is perfectly elastic, whereas in the long run, it is perfectly inelastic.',
+      'In the short run, there are both fixed and variable factors, whereas in the long run, all factors are variable.',
+      'In the long run, at least one factor is fixed, whereas in the short run, all factors are variable.',
+      'The distinction is meaningless: firms always face some constraints in production.',
+      'In the short run, firms cannot alter output, while in the long run, they can produce infinite output.',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  // o1-generated final questions
+  {
+    id: 156,
+    question:
+      'Refer to Figure 9-2. The diagram shows a perfectly competitive industry in long-run equilibrium. Which of the following statements is true for any firm in this industry?',
+    options: [
+      'Its price is below minimum average total cost.',
+      'Its output is determined by the intersection of MR and MC, which also equals minimum LRAC.',
+      'The firm is not operating at the level of output where MC = MR.',
+      'The firm’s revenue is zero in the long run.',
+      'There is a strong incentive for the firm to shut down in the long run.',
+    ],
+    category: 'final',
+    answer: 1,
+    figure: 'figure-9-2',
+  },
+  {
+    id: 157,
+    question:
+      'Refer to Figure 10-7. Suppose this monopolist chooses a single price (no price discrimination). If the firm is at the output level where MR = MC, how do profits compare to the case of perfect price discrimination?',
+    options: [
+      'Profits are the same as perfect price discrimination if demand is elastic.',
+      'Profits are higher than in perfect price discrimination.',
+      'Profits are lower because some consumer surplus remains.',
+      'Profits are zero under both scenarios.',
+      'Profits are negative in the single-price case.',
+    ],
+    category: 'final',
+    answer: 2,
+    figure: 'figure-10-7',
+  },
+  {
+    id: 158,
+    question:
+      'Which of the following is a necessary condition for a firm to successfully practice price discrimination?',
+    options: [
+      'The firm must be a perfect competitor.',
+      'Consumers must have identical elasticities of demand.',
+      'The firm must be able to separate consumers based on their willingness to pay and prevent resale.',
+      'The government must force uniform pricing.',
+      'The product must be an inferior good.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 159,
+    question:
+      'Suppose a competitive industry’s production creates a negative externality by polluting the local water supply. Which policy would tend to increase efficiency in this market?',
+    options: [
+      'A subsidy to firms for each unit of output produced.',
+      'A ceiling on the market price to help consumers afford the product.',
+      'A price floor above the equilibrium price to give firms more revenue.',
+      'An emission tax on each unit of the pollutant discharged.',
+      'No policy is needed because perfect competition is always efficient.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 160,
+    question:
+      'Which of the following statements about environmental policies is correct?',
+    options: [
+      'Direct regulation sets an overall price for pollution without specifying quantities.',
+      'Tradable pollution permits let firms buy and sell the right to emit pollutants.',
+      'Emission taxes fix the quantity of pollution emitted, independent of market conditions.',
+      'A total ban on pollution is always allocatively efficient.',
+      'Subsidies to polluting firms will reduce pollution more effectively than taxes.',
+    ],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 161,
+    question:
+      'If a nation imposes a tariff on an imported good in which it has a comparative disadvantage, the immediate effect is',
+    options: [
+      'an increase in the variety of goods available to domestic consumers.',
+      'a decrease in domestic production of that good.',
+      'a decrease in the domestic price of that good.',
+      'an increase in domestic producers’ output of that good.',
+      'no effect at all, since comparative advantage remains unchanged.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 162,
+    question:
+      'In the context of international trade, a quota differs from a tariff in that',
+    options: [
+      'a quota does not affect the equilibrium price of the imported good.',
+      'a quota increases government revenues, whereas a tariff does not.',
+      'a tariff imposes a tax on each imported unit; a quota imposes a limit on the quantity of imports.',
+      'both policies are identical in effect and differ only in name.',
+      'a tariff must be accompanied by an export subsidy, whereas a quota never requires one.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 163,
+    question:
+      'Consider an oligopoly where each firm’s best strategy is to undercut its rival’s price. Which statement about this situation is correct?',
+    options: [
+      'The firms are in a prisoner’s dilemma where the Nash equilibrium yields lower collective profits than a cooperative outcome.',
+      'Both firms will end up charging the highest possible price and sharing the market equally.',
+      'Economic profits are always maximized at the collusive outcome, which is easily enforced.',
+      'This is an example where cartels thrive without government enforcement.',
+      'There is no incentive for either firm to deviate from a high-price agreement.',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 164,
+    question:
+      'Refer to Figure Payoff-2. The matrix shows the payoffs to two competing airlines, A and B, based on whether they choose “High Capacity” (HC) or “Low Capacity” (LC). Which outcome is the Nash equilibrium?',
+    options: [
+      'Both choose HC.',
+      'Both choose LC.',
+      'One chooses HC while the other chooses LC, with total surplus maximized.',
+      'Any combination where both firms do not match their strategies.',
+      'There is no Nash equilibrium in this game.',
+    ],
+    category: 'final',
+    answer: 0,
+    figure: 'figure-payoff-2',
+  },
+  {
+    id: 165,
+    question:
+      'Which of the following would be an example of a policy designed to promote “free trade” rather than “protectionism”?',
+    options: [
+      'Imposing import quotas on electronics to protect local manufacturers',
+      'Providing an export subsidy for wheat farmers',
+      'Lobbying for an international agreement to reduce tariffs on all industrial goods',
+      'Raising tariff rates for key industrial inputs such as steel',
+      'Banning all imports of agricultural products',
+    ],
+    category: 'final',
+    answer: 2,
+  },
 ];
