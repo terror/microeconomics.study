@@ -110,21 +110,20 @@ const App = () => {
   >('categories-quiz-state', INITIAL_CATEGORIES_STATE);
 
   // State to track which category is currently selected
-  // Using useState instead of usePersistedState for the active category
-  const [activeCategory, setActiveCategory] = useState<Category | 'all'>('all');
-
-  // Load the active category from localStorage on component mount
-  useEffect(() => {
+  const [activeCategory, setActiveCategory] = useState<Category | 'all'>(() => {
     const savedCategory = localStorage.getItem('active-category');
+
     if (savedCategory) {
       try {
         const parsedCategory = JSON.parse(savedCategory) as Category | 'all';
-        setActiveCategory(parsedCategory);
+        if (categories.includes(parsedCategory)) return parsedCategory;
       } catch (error) {
-        console.warn('Error parsing active category from localStorage:', error);
+        return 'all';
       }
     }
-  }, []);
+
+    return 'all';
+  });
 
   // Save active category to localStorage when it changes
   useEffect(() => {
@@ -294,6 +293,7 @@ const App = () => {
           <div className='mb-6 flex flex-wrap gap-2 border-b border-border'>
             {categories.map((category) => {
               const progress = categoryProgress[category];
+
               return (
                 <button
                   key={category}
