@@ -3,6 +3,7 @@ import { Figure5_1 } from '@/figures/figure-5-1';
 import { Figure5_5 } from '@/figures/figure-5-5';
 import { Figure7_1 } from '@/figures/figure-7-1';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 import { ModeToggle } from './components/mode-toggle';
 import { Figure10_5 } from './figures/figure-10-5';
@@ -80,15 +81,21 @@ const randomizeQuestions = (
   });
 };
 
-const INITIAL_STATE: QuizState = {
+// Create a new QuizState for a specific category
+const createCategoryState = (category: Category | 'all'): QuizState => ({
   answeredQuestions: [],
   correctAnswers: 0,
   currentQuestion: 0,
   userAnswers: {},
   selectedAnswer: null,
   showFeedback: false,
-  randomizedQuestions: randomizeQuestions(),
-  selectedCategory: 'all',
+  randomizedQuestions: randomizeQuestions(category),
+  selectedCategory: category,
+});
+
+// Initialize with a single "all" state to start
+const INITIAL_CATEGORIES_STATE: Record<string, QuizState> = {
+  all: createCategoryState('all'),
 };
 
 const categories: (Category | 'all')[] = [
@@ -97,36 +104,78 @@ const categories: (Category | 'all')[] = [
 ];
 
 const App = () => {
-  const [quizState, setQuizState] = usePersistedState<QuizState>(
-    'quiz-state',
-    INITIAL_STATE
-  );
+  // State to track quiz states for all categories
+  const [categoriesState, setCategoriesState] = usePersistedState<
+    Record<string, QuizState>
+  >('categories-quiz-state', INITIAL_CATEGORIES_STATE);
 
+  // State to track which category is currently selected
+  // Using useState instead of usePersistedState for the active category
+  const [activeCategory, setActiveCategory] = useState<Category | 'all'>('all');
+
+  // Load the active category from localStorage on component mount
+  useEffect(() => {
+    const savedCategory = localStorage.getItem('active-category');
+    if (savedCategory) {
+      try {
+        const parsedCategory = JSON.parse(savedCategory) as Category | 'all';
+        setActiveCategory(parsedCategory);
+      } catch (error) {
+        console.warn('Error parsing active category from localStorage:', error);
+      }
+    }
+  }, []);
+
+  // Save active category to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem('active-category', JSON.stringify(activeCategory));
+  }, [activeCategory]);
+
+  // Get the quiz state for the active category
+  const quizState =
+    categoriesState[activeCategory] || createCategoryState(activeCategory);
   const answeredQuestionsSet = new Set(quizState.answeredQuestions);
+
+  // Helper function to update the state for the active category
+  const updateQuizState = (updates: Partial<QuizState>) => {
+    setCategoriesState({
+      ...categoriesState,
+      [activeCategory]: {
+        ...quizState,
+        ...updates,
+      },
+    });
+  };
 
   const handleAnswerClick = (answerIndex: number) => {
     if (!answeredQuestionsSet.has(quizState.currentQuestion)) {
-      setQuizState({
+      const isCorrect =
+        answerIndex ===
+        quizState.randomizedQuestions[quizState.currentQuestion].correctIndex;
+
+      updateQuizState({
         selectedAnswer: answerIndex,
         showFeedback: true,
         answeredQuestions: [
           ...quizState.answeredQuestions,
           quizState.currentQuestion,
         ],
-        correctAnswers:
-          answerIndex ===
-          quizState.randomizedQuestions[quizState.currentQuestion].correctIndex
-            ? quizState.correctAnswers + 1
-            : quizState.correctAnswers,
+        correctAnswers: isCorrect
+          ? quizState.correctAnswers + 1
+          : quizState.correctAnswers,
         userAnswers: {
           ...quizState.userAnswers,
           [quizState.currentQuestion]: answerIndex,
         },
       });
     } else {
-      setQuizState({
+      updateQuizState({
         selectedAnswer: answerIndex,
         showFeedback: true,
+        userAnswers: {
+          ...quizState.userAnswers,
+          [quizState.currentQuestion]: answerIndex,
+        },
       });
     }
   };
@@ -136,7 +185,7 @@ const App = () => {
       const prevQuestionIndex = quizState.currentQuestion - 1;
       const wasAnswered = answeredQuestionsSet.has(prevQuestionIndex);
 
-      setQuizState({
+      updateQuizState({
         currentQuestion: prevQuestionIndex,
         selectedAnswer: wasAnswered
           ? quizState.userAnswers[prevQuestionIndex]
@@ -151,7 +200,7 @@ const App = () => {
       const nextQuestionIndex = quizState.currentQuestion + 1;
       const wasAnswered = answeredQuestionsSet.has(nextQuestionIndex);
 
-      setQuizState({
+      updateQuizState({
         currentQuestion: nextQuestionIndex,
         selectedAnswer: wasAnswered
           ? quizState.userAnswers[nextQuestionIndex]
@@ -162,27 +211,32 @@ const App = () => {
   };
 
   const handleReset = () => {
-    const newState = {
-      ...INITIAL_STATE,
-      selectedCategory: quizState.selectedCategory,
-      randomizedQuestions: randomizeQuestions(quizState.selectedCategory),
-    };
-
-    setQuizState(newState);
+    // Reset just the current category's state
+    setCategoriesState({
+      ...categoriesState,
+      [activeCategory]: createCategoryState(activeCategory),
+    });
   };
 
   const handleCategoryChange = (category: Category | 'all') => {
-    const newState = {
-      ...INITIAL_STATE,
-      selectedCategory: category,
-      randomizedQuestions: randomizeQuestions(category),
-    };
+    // If we don't have a state for this category yet, create one
+    if (!categoriesState[category]) {
+      setCategoriesState({
+        ...categoriesState,
+        [category]: createCategoryState(category),
+      });
+    }
 
-    setQuizState(newState);
+    // Update the active category
+    setActiveCategory(category);
   };
 
   if (!quizState.randomizedQuestions?.length) {
-    setQuizState(INITIAL_STATE);
+    // Initialize the current category if it has no questions
+    setCategoriesState({
+      ...categoriesState,
+      [activeCategory]: createCategoryState(activeCategory),
+    });
     return null;
   }
 
@@ -203,6 +257,28 @@ const App = () => {
     {} as Record<string, number>
   );
 
+  // Get answered counts for each category
+  const categoryProgress = categories.reduce(
+    (acc, category) => {
+      const state = categoriesState[category];
+      if (state) {
+        acc[category] = {
+          answered: state.answeredQuestions.length,
+          total: state.randomizedQuestions.length,
+          correct: state.correctAnswers,
+        };
+      } else {
+        acc[category] = {
+          answered: 0,
+          total: questionsCount[category],
+          correct: 0,
+        };
+      }
+      return acc;
+    },
+    {} as Record<string, { answered: number; total: number; correct: number }>
+  );
+
   const renderedFigure: JSX.Element | null = getFigure(currentQ?.figure);
 
   return (
@@ -216,22 +292,25 @@ const App = () => {
       <div className='mx-auto max-w-4xl p-4'>
         <div className='m-4'>
           <div className='mb-6 flex flex-wrap gap-2 border-b border-border'>
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`px-4 py-2 text-sm font-medium transition-colors ${
-                  quizState.selectedCategory === category
-                    ? 'border-b-2 border-primary text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-                onClick={() => handleCategoryChange(category)}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-                <span className='ml-2 text-xs text-muted-foreground'>
-                  ({questionsCount[category]})
-                </span>
-              </button>
-            ))}
+            {categories.map((category) => {
+              const progress = categoryProgress[category];
+              return (
+                <button
+                  key={category}
+                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                    activeCategory === category
+                      ? 'border-b-2 border-primary text-primary'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                  onClick={() => handleCategoryChange(category)}
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                  <span className='ml-2 text-xs text-muted-foreground'>
+                    ({progress.total})
+                  </span>
+                </button>
+              );
+            })}
           </div>
           <div className='mb-4 flex items-center justify-between'>
             <span className='text-sm text-muted-foreground'>
