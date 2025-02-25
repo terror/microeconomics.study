@@ -2,9 +2,10 @@ import { Button } from '@/components/ui/button';
 import { Figure5_1 } from '@/figures/figure-5-1';
 import { Figure5_5 } from '@/figures/figure-5-5';
 import { Figure7_1 } from '@/figures/figure-7-1';
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { ChevronLeft, ChevronRight, RotateCcw, Trophy } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+import { ExamMode } from './components/exam-mode';
 import { ModeToggle } from './components/mode-toggle';
 import { Figure10_5 } from './figures/figure-10-5';
 import { Figure10_6 } from './figures/figure-10-6';
@@ -81,7 +82,6 @@ const randomizeQuestions = (
   });
 };
 
-// Create a new QuizState for a specific category
 const createCategoryState = (category: Category | 'all'): QuizState => ({
   answeredQuestions: [],
   correctAnswers: 0,
@@ -91,6 +91,8 @@ const createCategoryState = (category: Category | 'all'): QuizState => ({
   showFeedback: false,
   randomizedQuestions: randomizeQuestions(category),
   selectedCategory: category,
+  examMode: false,
+  examComplete: false,
 });
 
 // Initialize with a single "all" state to start
@@ -133,6 +135,7 @@ const App = () => {
   // Get the quiz state for the active category
   const quizState =
     categoriesState[activeCategory] || createCategoryState(activeCategory);
+
   const answeredQuestionsSet = new Set(quizState.answeredQuestions);
 
   // Helper function to update the state for the active category
@@ -146,6 +149,48 @@ const App = () => {
     });
   };
 
+  const handleStartExam = (duration: number) => {
+    // Reset the current category's state for a fresh exam
+    const freshExamState = createCategoryState(activeCategory);
+
+    setCategoriesState({
+      ...categoriesState,
+      [activeCategory]: {
+        ...freshExamState,
+        examMode: true,
+        examDuration: duration,
+      },
+    });
+  };
+
+  const handleEndExam = () => {
+    // Calculate the score if not all questions are answered
+    const totalAnswered = Object.keys(quizState.userAnswers).length;
+    const totalQuestions = quizState.randomizedQuestions.length;
+
+    if (totalAnswered < totalQuestions) {
+      const correctAnswers = Object.entries(quizState.userAnswers).reduce(
+        (count, [qIndex, answerIndex]) => {
+          const correctIndex =
+            quizState.randomizedQuestions[parseInt(qIndex)].correctIndex;
+          return answerIndex === correctIndex ? count + 1 : count;
+        },
+        0
+      );
+
+      updateQuizState({
+        examMode: false,
+        examComplete: true,
+        correctAnswers,
+      });
+    } else {
+      updateQuizState({
+        examMode: false,
+        examComplete: true,
+      });
+    }
+  };
+
   const handleAnswerClick = (answerIndex: number) => {
     if (!answeredQuestionsSet.has(quizState.currentQuestion)) {
       const isCorrect =
@@ -154,7 +199,7 @@ const App = () => {
 
       updateQuizState({
         selectedAnswer: answerIndex,
-        showFeedback: true,
+        showFeedback: !quizState.examMode, // Only show feedback immediately if not in exam mode
         answeredQuestions: [
           ...quizState.answeredQuestions,
           quizState.currentQuestion,
@@ -170,7 +215,7 @@ const App = () => {
     } else {
       updateQuizState({
         selectedAnswer: answerIndex,
-        showFeedback: true,
+        showFeedback: !quizState.examMode, // Only show feedback immediately if not in exam mode
         userAnswers: {
           ...quizState.userAnswers,
           [quizState.currentQuestion]: answerIndex,
@@ -189,7 +234,7 @@ const App = () => {
         selectedAnswer: wasAnswered
           ? quizState.userAnswers[prevQuestionIndex]
           : null,
-        showFeedback: wasAnswered,
+        showFeedback: wasAnswered && !quizState.examMode, // Only show feedback if not in exam mode
       });
     }
   };
@@ -204,8 +249,15 @@ const App = () => {
         selectedAnswer: wasAnswered
           ? quizState.userAnswers[nextQuestionIndex]
           : null,
-        showFeedback: wasAnswered,
+        showFeedback: wasAnswered && !quizState.examMode, // Only show feedback if not in exam mode
       });
+    } else if (
+      quizState.examMode &&
+      Object.keys(quizState.userAnswers).length ===
+        quizState.randomizedQuestions.length
+    ) {
+      // If this is the last question in exam mode and all questions are answered
+      handleEndExam();
     }
   };
 
@@ -256,10 +308,10 @@ const App = () => {
     {} as Record<string, number>
   );
 
-  // Get answered counts for each category
   const categoryProgress = categories.reduce(
     (acc, category) => {
       const state = categoriesState[category];
+
       if (state) {
         acc[category] = {
           answered: state.answeredQuestions.length,
@@ -279,6 +331,76 @@ const App = () => {
   );
 
   const renderedFigure: JSX.Element | null = getFigure(currentQ?.figure);
+
+  const totalAnswered = Object.keys(quizState.userAnswers).length;
+  const examScore = quizState.correctAnswers;
+
+  const examPercentage =
+    totalAnswered > 0 ? Math.round((examScore / totalAnswered) * 100) : 0;
+
+  if (quizState.examComplete) {
+    return (
+      <>
+        <div className='m-4 flex items-center font-bold'>
+          <a href='/microeconomics.study'>microeconomics.study</a>
+          <div className='ml-auto'>
+            <ModeToggle />
+          </div>
+        </div>
+        <div className='mx-auto max-w-4xl p-4'>
+          <div className='m-4'>
+            <div className='mb-6 flex flex-wrap gap-2 border-b border-border'>
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={`px-4 py-2 text-sm font-medium transition-colors ${
+                    activeCategory === category
+                      ? 'border-b-2 border-primary text-primary'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                  onClick={() => handleCategoryChange(category)}
+                >
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </button>
+              ))}
+            </div>
+
+            <div className='flex flex-col items-center justify-center space-y-6 py-8 text-center'>
+              <div className='flex h-24 w-24 items-center justify-center rounded-full bg-muted'>
+                <Trophy className='h-12 w-12 text-primary' />
+              </div>
+              <h2 className='text-2xl font-bold'>Exam Complete!</h2>
+
+              <div className='text-4xl font-bold'>
+                {examScore} / {quizState.randomizedQuestions.length}
+                <span className='ml-2 text-lg text-muted-foreground'>
+                  ({examPercentage}%)
+                </span>
+              </div>
+
+              <div className='text-muted-foreground'>
+                You answered {totalAnswered} out of{' '}
+                {quizState.randomizedQuestions.length} questions
+              </div>
+
+              <div className='mt-6 flex items-center gap-4'>
+                <Button
+                  className='p-4'
+                  variant='outline'
+                  onClick={() =>
+                    updateQuizState({ currentQuestion: 1, examComplete: false })
+                  }
+                >
+                  Review Answers
+                </Button>
+                <Button onClick={handleReset}>Start New Exam</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -312,6 +434,15 @@ const App = () => {
               );
             })}
           </div>
+          <ExamMode
+            categoryName={
+              activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)
+            }
+            totalQuestions={quizState.randomizedQuestions.length}
+            onStart={handleStartExam}
+            isActive={Boolean(quizState.examMode)}
+            onEnd={handleEndExam}
+          />
           <div className='mb-4 flex items-center justify-between'>
             <span className='text-sm text-muted-foreground'>
               Question {quizState.currentQuestion + 1} of{' '}
@@ -321,6 +452,7 @@ const App = () => {
               <div className='text-sm text-muted-foreground'>
                 {answeredQuestionsSet.size} answered
                 {answeredQuestionsSet.size > 0 &&
+                  !quizState.examMode &&
                   ` (${Math.round((quizState.correctAnswers / answeredQuestionsSet.size) * 100)}% correct)`}
               </div>
             ) : null}
@@ -349,7 +481,12 @@ const App = () => {
                     quizState.showFeedback && index === currentQ.correctIndex
                       ? 'border-green-500 bg-green-500/10 dark:bg-green-500/20'
                       : ''
-                  } `}
+                  } ${
+                    quizState.examMode &&
+                    quizState.userAnswers[quizState.currentQuestion] === index
+                      ? 'border-blue-500 bg-blue-500/10 dark:bg-blue-500/20'
+                      : ''
+                  }`}
                   disabled={quizState.showFeedback}
                 >
                   {String.fromCharCode(65 + index)}. {option}
@@ -373,18 +510,29 @@ const App = () => {
               className='flex items-center'
             >
               <RotateCcw className='mr-2 h-4 w-4' />
-              Reset
+              {quizState.examMode ? 'Cancel Exam' : 'Reset'}
             </Button>
             <Button
-              variant='outline'
+              variant={
+                quizState.examMode &&
+                quizState.currentQuestion ===
+                  quizState.randomizedQuestions.length - 1
+                  ? 'default'
+                  : 'outline'
+              }
               onClick={handleNextQuestion}
               disabled={
                 quizState.currentQuestion ===
-                quizState.randomizedQuestions.length - 1
+                  quizState.randomizedQuestions.length - 1 &&
+                !quizState.examMode
               }
               className='flex items-center'
             >
-              Next
+              {quizState.examMode &&
+              quizState.currentQuestion ===
+                quizState.randomizedQuestions.length - 1
+                ? 'Finish Exam'
+                : 'Next'}
               <ChevronRight className='ml-2 h-4 w-4' />
             </Button>
           </div>
