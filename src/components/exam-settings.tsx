@@ -1,4 +1,3 @@
-// Import the shadcn utility function
 import { ExamTimer } from '@/components/exam-timer';
 import { Button } from '@/components/ui/button';
 import {
@@ -94,7 +93,7 @@ export const ExamSettings: React.FC<ExamSettingsProps> = ({
     <Card className='mb-4 w-full border-primary/20'>
       <CardHeader
         className={cn(
-          'cursor-pointer rounded-md pb-6 transition-colors',
+          'cursor-pointer rounded-t-md pb-6 transition-colors',
           isExpanded ? 'border-b border-border' : '',
           'hover:bg-accent/10'
         )}

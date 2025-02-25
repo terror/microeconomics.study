@@ -1,12 +1,24 @@
 export type Category = 'midterm' | 'final';
 
+export type FigureId =
+  | 'figure-5-1'
+  | 'figure-5-5'
+  | 'figure-7-1'
+  | 'figure-10-5'
+  | 'figure-10-6'
+  | 'figure-16-1'
+  | 'figure-32-1'
+  | 'figure-32-5'
+  | 'figure-17-1'
+  | 'figure-payoff-matrix';
+
 export type Question = {
   id: number;
   question: string;
   options: string[];
   answer: number;
   category: Category;
-  figure?: string;
+  figure?: FigureId;
 };
 
 export type RandomizedQuestion = {
@@ -15,7 +27,7 @@ export type RandomizedQuestion = {
   options: string[];
   originalIndices: number[];
   correctIndex: number;
-  figure?: string;
+  figure?: FigureId;
   category: Category;
 };
 

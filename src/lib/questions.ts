@@ -1219,7 +1219,6 @@ export const questions: Question[] = [
     ],
     category: 'final',
     answer: 1,
-    figure: 'figure-12-1',
   },
   {
     id: 97,
