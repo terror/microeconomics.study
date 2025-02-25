@@ -1,101 +1,213 @@
 export const FigurePayoffMatrix = () => (
-  <svg viewBox='0 0 400 300' className='mx-auto w-full max-w-lg'>
-    <rect
-      x='50'
-      y='50'
-      width='300'
-      height='200'
-      fill='none'
-      stroke='currentColor'
+  <svg viewBox='0 0 500 300' className='mx-auto w-full max-w-lg'>
+    <line
+      x1='100'
+      y1='120'
+      x2='450'
+      y2='120'
+      stroke='hsl(var(--muted-foreground))'
+      strokeOpacity='0.5'
       strokeWidth='2'
     />
-
-    {/* Horizontal dividers */}
     <line
-      x1='50'
-      y1='100'
-      x2='350'
-      y2='100'
-      stroke='currentColor'
-      strokeWidth='1'
+      x1='100'
+      y1='200'
+      x2='450'
+      y2='200'
+      stroke='hsl(var(--muted-foreground))'
+      strokeOpacity='0.5'
+      strokeWidth='2'
     />
     <line
-      x1='50'
-      y1='150'
-      x2='350'
-      y2='150'
-      stroke='currentColor'
-      strokeWidth='1'
+      x1='100'
+      y1='280'
+      x2='450'
+      y2='280'
+      stroke='hsl(var(--muted-foreground))'
+      strokeOpacity='0.5'
+      strokeWidth='2'
     />
-
-    {/* Vertical dividers */}
     <line
-      x1='200'
-      y1='50'
-      x2='200'
-      y2='250'
-      stroke='currentColor'
-      strokeWidth='1'
+      x1='100'
+      y1='120'
+      x2='100'
+      y2='280'
+      stroke='hsl(var(--muted-foreground))'
+      strokeOpacity='0.5'
+      strokeWidth='2'
     />
     <line
       x1='275'
-      y1='50'
+      y1='80'
       x2='275'
-      y2='100'
-      stroke='currentColor'
-      strokeWidth='1'
+      y2='280'
+      stroke='hsl(var(--muted-foreground))'
+      strokeOpacity='0.5'
+      strokeWidth='2'
     />
     <line
-      x1='125'
-      y1='150'
-      x2='125'
-      y2='250'
-      stroke='currentColor'
-      strokeWidth='1'
+      x1='450'
+      y1='120'
+      x2='450'
+      y2='280'
+      stroke='hsl(var(--muted-foreground))'
+      strokeOpacity='0.5'
+      strokeWidth='2'
     />
 
-    {/* Table headers */}
     <text
-      x='200'
-      y='75'
+      x='275'
+      y='40'
+      fontFamily='system-ui'
+      fontSize='22'
       textAnchor='middle'
-      className='fill-foreground font-semibold'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
     >
       Firm B
     </text>
-    <text x='237.5' y='90' textAnchor='middle' className='fill-foreground'>
-      Produce 1000 Units
-    </text>
-    <text x='312.5' y='90' textAnchor='middle' className='fill-foreground'>
-      Produce 2000 Units
-    </text>
-
     <text
-      x='87.5'
-      y='125'
+      x='40'
+      y='205'
+      fontFamily='system-ui'
+      fontSize='22'
       textAnchor='middle'
-      className='fill-foreground font-semibold'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
     >
       Firm A
     </text>
-    <text x='87.5' y='175' textAnchor='middle' className='fill-foreground'>
-      Produce 1000 Units
+
+    <text
+      x='187.5'
+      y='85'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='middle'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
+    >
+      Produce
     </text>
-    <text x='87.5' y='225' textAnchor='middle' className='fill-foreground'>
-      Produce 2000 Units
+    <text
+      x='187.5'
+      y='105'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='middle'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
+    >
+      1000 Units
     </text>
 
-    {/* Payoff values */}
-    <text x='162.5' y='175' textAnchor='middle' className='fill-foreground'>
+    <text
+      x='362.5'
+      y='85'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='middle'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
+    >
+      Produce
+    </text>
+    <text
+      x='362.5'
+      y='105'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='middle'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
+    >
+      2000 Units
+    </text>
+
+    <text
+      x='75'
+      y='145'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='end'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
+    >
+      Produce
+    </text>
+    <text
+      x='85'
+      y='165'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='end'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
+    >
+      1000 Units
+    </text>
+
+    <text
+      x='75'
+      y='240'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='end'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
+    >
+      Produce
+    </text>
+    <text
+      x='85'
+      y='260'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='end'
+      fontWeight='bold'
+      fill='hsl(var(--foreground))'
+    >
+      2000 Units
+    </text>
+
+    <text
+      x='187.5'
+      y='160'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='middle'
+      fill='hsl(var(--primary))'
+    >
       (100, 100)
     </text>
-    <text x='275' y='175' textAnchor='middle' className='fill-foreground'>
+    <text
+      x='362.5'
+      y='160'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='middle'
+      fill='hsl(var(--primary))'
+    >
       (10, 150)
     </text>
-    <text x='162.5' y='225' textAnchor='middle' className='fill-foreground'>
+    <text
+      x='187.5'
+      y='240'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='middle'
+      fill='hsl(var(--primary))'
+    >
       (150, 10)
     </text>
-    <text x='275' y='225' textAnchor='middle' className='fill-foreground'>
+    <text
+      x='362.5'
+      y='240'
+      fontFamily='system-ui'
+      fontSize='16'
+      textAnchor='middle'
+      fill='hsl(var(--primary))'
+    >
       (30, 30)
     </text>
   </svg>
