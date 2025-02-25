@@ -762,4 +762,727 @@ export const questions: Question[] = [
     category: 'midterm',
     answer: 2,
   },
+  {
+    id: 63,
+    question:
+      'A monopoly is distinguished from a firm operating under any other market structure in the following way: The monopoly',
+    options: [
+      'faces a demand curve which is identical to the market demand curve.',
+      'charges a price higher than its average revenue.',
+      'can choose its output level.',
+      'does not produce at a profit-maximizing level of output.',
+      'can choose its level of cost.',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 64,
+    question:
+      'Suppose a monopolist faces the demand curve and cost curves shown in Figure 10-5. If the monopolist is practicing perfect price discrimination, how does this differ from the situation where this firm is charging a single price for its product?',
+    options: [
+      'The firm is restricting output to a level below that of the single-price monopolist, and thereby raises the price of its product and earns higher profits.',
+      'The firm is producing the same quantity, but charging a different price for each unit sold and is earning higher profits.',
+      'The firm is producing a higher quantity, is charging a different price for each unit sold and is earning higher profits.',
+      'The firm is producing a smaller quantity, is charging a different price for each unit sold and is earning higher profits.',
+      'The firm is producing the same quantity, has successfully identified different segments of the market, and is able to capture some of the consumer surplus.',
+    ],
+    category: 'final',
+    answer: 2,
+    figure: 'figure-10-5',
+  },
+  {
+    id: 65,
+    question:
+      'Consider two firms, A and B, that are producing the same product but with different average costs. Economists say this situation reflects a problem of',
+    options: [
+      'allocative inefficiency.',
+      'economic inefficiency.',
+      'unemployed resources.',
+      'productive inefficiency.',
+      'Not necessarily any of the above.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 66,
+    question:
+      'Suppose a perfectly competitive market with no government intervention achieves equilibrium at point A. If the social marginal costs and social marginal benefits are represented by MC0 and MB1, respectively, then there exists',
+    options: [
+      'an external benefit and an external cost.',
+      'an external benefit.',
+      'an external cost.',
+      'a social cost that exceeds the private cost.',
+      'no external benefits or costs.',
+    ],
+    category: 'final',
+    answer: 1,
+    figure: 'figure-16-1',
+  },
+  {
+    id: 67,
+    question:
+      'Consider a natural monopoly that has declining LRAC over the entire range of the market demand curve. If it is regulated and required to charge a price that is equal to marginal cost, the resulting level of output is',
+    options: [
+      'less than the allocatively efficient level, but losses occur.',
+      'allocatively efficient, and profit is earned.',
+      'less than the allocatively efficient level, and profit is zero.',
+      'allocatively efficient, but the firm must be paid a subsidy or it will eventually go out of business.',
+      'greater than the allocatively efficient level, but losses occur.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 68,
+    question:
+      "Between 1995 and 2014, Canada's greenhouse gas emissions ________ by ________%.",
+    options: [
+      'decreased; 1',
+      'decreased; 6',
+      'increased; 6',
+      'increased; about 25',
+      'increased; close to 50',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 69,
+    question:
+      'Suppose there are many independent dry cleaners in your city, each of which is earning economic profits. According to the theory of monopolistic competition,',
+    options: [
+      'existing dry cleaners will cooperate and maximize their joint profits.',
+      'existing dry cleaners will expand until they reach the quantity associated with minimum long-run average cost.',
+      'new dry cleaners will enter this market until each firm is earning zero profits.',
+      'existing dry cleaners will engage in non-price competition and maintain their profits in the long run.',
+      'existing dry cleaners will cooperate and restrict entry of new firms.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 70,
+    question:
+      'The figure shows an individual firm in a perfectly competitive industry in which all firms have joined together to form a cartel. This firm has agreed to restrict its output to 600 units per day and raise its price to $5 per unit. As a participating member of the cartel in this industry, what are the additional profits this firm is earning, in comparison to the profits it was earning prior to joining the cartel?',
+    options: [
+      '$1050 per day',
+      '$3000 per day',
+      '$1800 per day',
+      '$600 per day',
+      '$1200 per day',
+    ],
+    category: 'final',
+    answer: 3,
+    figure: 'figure-10-6',
+  },
+  {
+    id: 71,
+    question:
+      'Suppose a perfectly competitive market with no government intervention achieves equilibrium at point A. If the social marginal costs and social marginal benefits are represented by MC0 and MB0, respectively, then there exists',
+    options: [
+      'a positive external cost.',
+      'a negative external benefit.',
+      'a positive external benefit.',
+      'a negative external cost.',
+      'no externality whatsoever.',
+    ],
+    category: 'final',
+    answer: 4,
+    figure: 'figure-16-1',
+  },
+  {
+    id: 72,
+    question:
+      'A monopolistically competitive firm maximizes profits in the short run',
+    options: [
+      'by maximizing total revenue.',
+      'by equating MC with MR.',
+      'by equating MC with price.',
+      'when P = AVC.',
+      'when P = ATC.',
+    ],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 73,
+    question:
+      'Which of the following statements apply to a perfectly competitive market? 1. There is freedom of entry and exit of firms in the industry. 2. Consumers prefer certain brands over others. 3. All firms in the industry are price takers.',
+    options: ['1 only', '2 only', '3 only', '1 and 2 only', '1 and 3 only'],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 74,
+    question:
+      'Trade, whether between individuals or nations, generally promotes',
+    options: [
+      'higher product prices.',
+      'self-sufficiency.',
+      'autarky',
+      'lower living standards.',
+      'specialization.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 75,
+    question: "All points on a country's production possibilities boundary are",
+    options: [
+      'allocatively efficient.',
+      'productively efficient.',
+      'Pareto optimal.',
+      'not productively efficient.',
+      'points at which P = MC for all goods.',
+    ],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 76,
+    question: 'Japan has an absolute advantage in',
+    options: [
+      'steel.',
+      'wool.',
+      'both goods.',
+      'neither good.',
+      'Insufficient information to determine the answer.',
+    ],
+    category: 'final',
+    answer: 0,
+    figure: 'figure-32-1',
+  },
+  {
+    id: 77,
+    question:
+      'If there are economic profits in a monopolistically competitive industry, they will generally be competed away through the',
+    options: [
+      'manipulation of the demand curve.',
+      'increasing advertising budgets of existing firms.',
+      'exit of existing firms.',
+      'introduction of brand name products by existing firms.',
+      'entry of new firms.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 78,
+    question:
+      'If a country has a comparative advantage in the production of soybeans, and it trades freely with other countries, it will most probably',
+    options: [
+      'derive no advantage from any trade in soybeans.',
+      'import soybeans.',
+      'export soybeans.',
+      'not consume soybeans.',
+      'increase its consumption of soybeans.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 79,
+    question:
+      'If Paperland engages in international trade and the world price is PA, the amount of newsprint produced by Paperland will be',
+    options: ['Q1.', 'Q2.', 'Q3.', 'Q4.', 'Q5.'],
+    category: 'final',
+    answer: 4,
+    figure: 'figure-32-5',
+  },
+  {
+    id: 80,
+    question:
+      'Suppose the world price of granite is $900. What quantity will Canada import or export?',
+    options: [
+      'Canada will neither import nor export.',
+      'Canada will export 140 tonnes.',
+      'Canada will export 100 tonnes.',
+      'Canada will import 100 tonnes.',
+      'Canada will import 40 tonnes.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 81,
+    question: 'The total cost of producing 6 units of output is',
+    options: ['$430.', '$330.', '$100.', '$230.', '$71.67.'],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 82,
+    question: 'The average revenue curve for a single-price monopolist',
+    options: [
+      'is a horizontal line, equal to the price of its product.',
+      'slopes upward to the right.',
+      'does not exist.',
+      'coincides with its demand curve.',
+      'lies below its demand curve.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 83,
+    question:
+      'Suppose each of Firms A, B, and C are producing 500 kilos of potatoes. Is this industry productively efficient?',
+    options: [
+      'No, because the marginal cost curve for each firm has a different slope.',
+      'No, because marginal costs are not equated for all firms.',
+      'No, because each firm could easily produce more than 500 kilos.',
+      'Yes, because output is equated for all firms.',
+      'It is not possible to say whether this industry is productively efficient because we do not know the market price of the product.',
+    ],
+    category: 'final',
+    answer: 1,
+    figure: 'figure-12-1',
+  },
+  {
+    id: 84,
+    question:
+      'The "informal defence" of free markets includes the argument that competitive markets',
+    options: ['1 only', '2 only', '3 only', '1 and 2', '2 and 3'],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 85,
+    question: 'Automobile emissions standards are an example of',
+    options: [
+      'emissions taxes.',
+      'a market-based environmental policy.',
+      'market power.',
+      'tradable emissions standards.',
+      'direct regulatory pollution controls.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 86,
+    question:
+      'Consider the following statement of equalities: P = MC = minimum SRATC = minimum LRAC. This statement of equalities best applies to which of the following?',
+    options: [
+      'a perfectly competitive industry that is in short-run equilibrium',
+      'a perfectly competitive industry that is in long-run equilibrium',
+      'a perfectly competitive firm that is producing the optimal quantity, such that other firms will exit the industry',
+      'a perfectly competitive firm when the industry is in long-run equilibrium',
+      'a perfectly competitive firm that is maximizing profits, which will lead other firms to enter this industry',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 87,
+    question:
+      'It is common for a cartel to collapse when one or more firms in the cartel',
+    options: [
+      'exit the industry.',
+      'produce more efficiently than other member firms.',
+      'exceed its output quota.',
+      'are much larger than other cartel members.',
+      'increase its price above the monopoly price.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 88,
+    question:
+      'In order to maximize its profits, the firm should continue to produce in the short run even if the market price is less than its ATC as long as the price is greater than or equal to',
+    options: ['AFC.', 'AVC.', 'MC.', 'TC.', 'TVC.'],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 89,
+    question:
+      'Before any trade takes place, the opportunity cost of a unit of steel is',
+    options: [
+      '3/4 unit of wool in Ireland; 3/8 unit of wool in Japan.',
+      '4/3 unit of wool in Ireland; 8/3 unit of wool in Japan.',
+      '4 units of wool in Ireland; 8 units of wool in Japan.',
+      '4 units of wool in Ireland; 4 units of wool in Japan.',
+      '3 units of wool in Ireland; 3 units of wool in Japan.',
+    ],
+    category: 'final',
+    answer: 0,
+    figure: 'figure-32-1',
+  },
+  {
+    id: 90,
+    question: 'What is meant by the term "market failure"?',
+    options: [
+      'that allocative efficiency has not been achieved',
+      'that the free market has failed to achieve desirable social goals',
+      'that one or more markets are not in equilibrium',
+      'that the market economy is a failure',
+      'that a small group in society is affected',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 91,
+    question:
+      'If the ratio Xa/Ya is less than the ratio Xb/Yb, then we can say with certainty that',
+    options: [
+      'The opportunity cost of producing good Y in Country A is less than in Country B.',
+      'Country A has a comparative advantage in the production of good X.',
+      'The opportunity cost of producing good X in Country A is higher than in Country B.',
+      'Country A has an absolute advantage in the production of good X.',
+      'The opportunity cost of producing good X in Country A is lower than in Country B.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 92,
+    question: 'Economic losses in an industry are a signal that',
+    options: [
+      'too few resources are allocated to the industry.',
+      'will lead resources to leave the industry (until the losses disappear).',
+      'the economy is in a recession.',
+      'all of the firms should leave the industry.',
+      'a government subsidy is necessary.',
+    ],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 93,
+    question:
+      'The existence of imperfectly competitive firms implies a market failure because',
+    options: [
+      'those firms will maximize profits by setting price above marginal cost.',
+      'there is no way to prevent these firms from abusing their market power.',
+      'they lead to a socially undesirable distribution of income.',
+      'their market power allows them to deceive consumers.',
+      'they do not produce a productively efficient level of output.',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 94,
+    question:
+      'If the monopolist is practicing perfect price discrimination and is maximizing its profits, the consumer surplus is represented by the area',
+    options: [
+      'P₅P₄a.',
+      'P₅P₀c.',
+      'P₅P₃c.',
+      'P₅P₂e.',
+      'There is no consumer surplus in this case.',
+    ],
+    category: 'final',
+    answer: 4,
+    figure: 'figure-10-5',
+  },
+  {
+    id: 95,
+    question:
+      'Consider a perfectly competitive firm when its industry is in long-run equilibrium. Which of the following statements about the firm is correct?',
+    options: [
+      'The firm has successfully differentiated its product.',
+      'The firm has successfully established barriers to entry.',
+      'The firm has a strong profit incentive to expand capacity.',
+      "The firm has no ability to affect its product's price.",
+      'The firm is earning positive economic profits.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 96,
+    question:
+      "Consider an example of the prisoner's dilemma where 2 firms are making sealed bids on a highway-construction contract and each firm is allowed to bid either $100 million or $120 million. If both firms bid the same price, the job is shared equally and each firm earns half the value of its bid. Otherwise the lowest bidder wins the contract and receives the full value of its bid (and the other bidder earns zero). The cooperative outcome in this situation is",
+    options: [
+      'both firms bid $120 million.',
+      'one firm bids $100 million, the other firm bids $120 million.',
+      'both firms bid $50 million.',
+      'both firms bid $60 million.',
+      'both firms bid $100 million.',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 97,
+    question:
+      "Consider an example of the prisoner's dilemma where 2 firms are making sealed bids on a contract and each firm is allowed to bid either $100 or $180. If both firms bid the same price, the job is shared equally and each firm earns half the value of its bid. Otherwise the lowest bidder wins the contract and receives the full value of its bid (and the other bidder earns zero). The cooperative outcome in this situation is",
+    options: [
+      'both firms bid $100.',
+      'both firms bid $50.',
+      'both firms bid $180.',
+      'one firm bids $100, the other firm bids $180.',
+      'both firms bid $90.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 98,
+    question:
+      'Consider the case of a natural monopoly with falling long-run average costs. If regulation sets the price equal to marginal cost, then',
+    options: [
+      'the firm would earn economic profits.',
+      'the demand curve would shift to the left.',
+      'the outcome would be allocatively inefficient.',
+      'the firm would operate at a loss and eventually go out of business.',
+      'shortages would result.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 99,
+    question:
+      'If entry into a monopolistically competitive industry occurs because of positive profits earned by the existing firms, the',
+    options: [
+      'demand curve for each existing firm will shift to the left.',
+      'industry demand curve will shift to the left.',
+      'industry demand curve will shift to the right.',
+      'demand curve for each existing firm will shift to the right.',
+      'demand curves for the existing firms will remain unchanged.',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 100,
+    question:
+      'The banning of wood-burning stoves and fireplaces is an example of',
+    options: [
+      'a market-based environmental policy.',
+      'safety regulations.',
+      'tradable emissions standards.',
+      'emissions taxes.',
+      'direct regulatory pollution controls.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 101,
+    question:
+      'At the level of the industry, the condition for productive efficiency is that',
+    options: [
+      'MC = P for all goods.',
+      'goods are allocated equitably.',
+      'MC is equal for all firms in the industry.',
+      'MRP = P for all inputs.',
+      'there are no idle resources in the industry.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 102,
+    question:
+      'A monopolistic firm faces a downward-sloping demand curve because',
+    options: [
+      'marginal revenue is negative throughout the feasible range of output.',
+      'the monopolistic firm can exploit economies of scale.',
+      'there are a large number of firms in the industry, all selling the same product.',
+      'the demand for its product is always inelastic.',
+      'the market price is affected by the amount sold by a monopolistic firm.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 103,
+    question:
+      'Consider the gains from trade. What is the best definition of "absolute advantage"?',
+    options: [
+      'Engaging in trade is always to the absolute advantage of one party to the transaction.',
+      'A situation where one country can produce one unit of a given product with fewer resources than the other country.',
+      'There will be no benefits from trade between two nations.',
+      'A situation where one country can produce one unit of all goods with fewer resources than can another country.',
+      'Trade fosters the self-sufficiency of nations.',
+    ],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 104,
+    question:
+      'Government intervention in an effort to promote allocative efficiency in all industries would likely impose a cost in terms of economic growth. One explanation for this is that',
+    options: [
+      'some policies to promote allocative efficiency will lead to increased income inequality.',
+      'firms in perfectly competitive industries that are already allocatively efficient would also be affected by the intervention and become inefficient.',
+      "correcting externalities inevitably reduces the economy's growth rate.",
+      'some policies to promote allocative efficiency will lead to decreased income inequality.',
+      'much of the innovation and productivity growth that leads to economic growth comes from oligopolistic firms.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 105,
+    question:
+      'One method of regulating a natural monopoly is known as average-cost pricing. Using this method, the regulator requires that the price be set equal to',
+    options: [
+      'average variable cost.',
+      'internal cost.',
+      'marginal cost.',
+      'long-run average cost.',
+      'average fixed cost.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 106,
+    question:
+      'Economists describe prices as "signals" in a market economy because',
+    options: [
+      'they tell consumers how to act to keep the market system functioning well.',
+      'changes in these signals bring about changes in market structure.',
+      'changes in these signals bring about changes in economic behaviour.',
+      'they tell government agents how to act to keep the market system functioning well.',
+      'prices are the only mechanism through which supply and demand will balance.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 107,
+    question:
+      'If Paperland does not engage in international trade, the equilibrium quantity of newsprint produced domestically will be',
+    options: ['Q1.', 'Q2.', 'Q3.', 'Q4.', 'Q5.'],
+    category: 'final',
+    answer: 2,
+    figure: 'figure-32-5',
+  },
+  {
+    id: 108,
+    question: 'From the payoff matrix we can infer that',
+    options: [
+      'both firms are indifferent between an equilibrium (Produce 1000 units, Produce 1000 units) and (Produce 2000 units, Produce 2000 units).',
+      'it is optimal for Firm A to produce 2000 units of output regardless of what Firm B is doing.',
+      'it is optimal for Firm A to produce 1000 units of output regardless of what Firm B is doing.',
+      'it is optimal for Firm B to produce 1000 units of output regardless of what Firm A is doing.',
+      'there is no Nash equilibrium in the game.',
+    ],
+    category: 'final',
+    answer: 1,
+    figure: 'figure-payoff-matrix',
+  },
+  {
+    id: 109,
+    question: 'How is a negative externality depicted in this diagram?',
+    options: [
+      'Marginal social cost is greater than the marginal private cost.',
+      'Marginal social cost is greater than the marginal social benefit.',
+      'Marginal social benefit to consumers is diminishing with greater output.',
+      'Optimal level of output occurs where marginal private cost is positive.',
+      'Optimal level of output occurs where marginal private benefit is positive.',
+    ],
+    category: 'final',
+    answer: 0,
+    figure: 'figure-17-1',
+  },
+  {
+    id: 110,
+    question:
+      'Prior to joining the cartel, this firm was operating in a long-run equilibrium. Its output as a perfectly competitive firm was ________ units per day; its price was ________ per unit; and its economic profits were ________ per day.',
+    options: [
+      '1200; $5.00; $2400',
+      '600; $4.00; $600',
+      '1000; $5.00; $2000',
+      '600; $5.00; $600',
+      '1000; $3.00; $0',
+    ],
+    category: 'final',
+    answer: 4,
+    figure: 'figure-10-6',
+  },
+  {
+    id: 111,
+    question: 'Under what circumstances can a cartel succeed in the long run?',
+    options: [
+      'There is free entry of new firms.',
+      'Member firms cooperate and resist their individual incentives.',
+      'All firms are experiencing decreasing returns to scale.',
+      'The cartel has authorization from the government.',
+      'The long-run market supply curve is elastic.',
+    ],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 112,
+    question:
+      'Consider a firm in a perfectly competitive market. If this firm were to raise its price, its',
+    options: [
+      'profits would increase as long as costs remained constant.',
+      'total costs would increase.',
+      'revenue would decrease only if market demand were elastic.',
+      'revenue would increase only if market demand were inelastic.',
+      'revenue would fall dramatically.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 113,
+    question:
+      "The increases in a nation's output and consumption that result from specialization and trade are called",
+    options: [
+      'the gains from trade.',
+      'comparative advantage.',
+      'autarky.',
+      'the terms of trade.',
+      'absolute advantage.',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 114,
+    question:
+      'At what price and quantity combination will Canada not engage in international trade in granite?',
+    options: [
+      '$400 and 140 tonnes',
+      '$400 and 0 tonnes',
+      '$700 and 80 tonnes',
+      '$1000 and 20 tonnes',
+      '$1000 and 170 tonnes',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 115,
+    question:
+      'Suppose a perfectly competitive market with no government intervention achieves equilibrium at point A. If the social marginal costs and social marginal benefits are represented by MC1 and MB0, respectively, then there exists',
+    options: [
+      'an external cost, but no external benefit.',
+      'an external benefit, but no external cost.',
+      'an external cost and an external benefit.',
+      'no externalities at all.',
+    ],
+    category: 'final',
+    answer: 0,
+    figure: 'figure-16-1',
+  },
+  {
+    id: 116,
+    question:
+      'Consider a country that is initially autarkic and then engages freely in international trade. If this country has a comparative advantage in the production of soybeans, it will most probably',
+    options: [
+      'derive no advantage from any trade in soybeans.',
+      'import soybeans',
+      'increase the production of soybeans to allow for the export of soybeans.',
+      'increase the production of soybeans for domestic consumption.',
+      'decrease the production of soybeans for domestic consumption.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
 ];

@@ -5,11 +5,18 @@ import { Figure7_1 } from '@/figures/figure-7-1';
 import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 
 import { ModeToggle } from './components/mode-toggle';
+import { Figure10_5 } from './figures/figure-10-5';
+import { Figure10_6 } from './figures/figure-10-6';
+import { Figure16_1 } from './figures/figure-16-1';
+import { Figure17_1 } from './figures/figure-17-1';
+import { Figure32_1 } from './figures/figure-32-1';
+import { Figure32_5 } from './figures/figure-32-5';
+import { FigurePayoffMatrix } from './figures/figure-payoff-matrix';
 import { usePersistedState } from './hooks/use-persisted-state';
 import { questions as originalQuestions } from './lib/questions';
-import type { Category, QuizState } from './lib/types';
+import type { Category, QuizState, RandomizedQuestion } from './lib/types';
 
-const figure = (id: string | undefined): JSX.Element | null => {
+const getFigure = (id: string | undefined): JSX.Element | null => {
   switch (id) {
     case 'figure-5-1':
       return <Figure5_1 />;
@@ -17,6 +24,20 @@ const figure = (id: string | undefined): JSX.Element | null => {
       return <Figure5_5 />;
     case 'figure-7-1':
       return <Figure7_1 />;
+    case 'figure-10-5':
+      return <Figure10_5 />;
+    case 'figure-10-6':
+      return <Figure10_6 />;
+    case 'figure-16-1':
+      return <Figure16_1 />;
+    case 'figure-32-1':
+      return <Figure32_1 />;
+    case 'figure-32-5':
+      return <Figure32_5 />;
+    case 'figure-17-1':
+      return <Figure17_1 />;
+    case 'figure-payoff-matrix':
+      return <FigurePayoffMatrix />;
     default:
       return null;
   }
@@ -33,7 +54,9 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return shuffled;
 };
 
-const randomizeQuestions = (category: Category | 'all' = 'all') => {
+const randomizeQuestions = (
+  category: Category | 'all' = 'all'
+): RandomizedQuestion[] => {
   const filteredQuestions =
     category === 'all'
       ? originalQuestions
@@ -165,7 +188,7 @@ const App = () => {
     {} as Record<string, number>
   );
 
-  const renderedFigure: JSX.Element | null = figure(currentQ?.figure);
+  const renderedFigure: JSX.Element | null = getFigure(currentQ?.figure);
 
   return (
     <>
