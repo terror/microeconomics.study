@@ -108,7 +108,7 @@ export const ExamMode: React.FC<ExamModeProps> = ({
         <div className='flex items-center justify-between'>
           <CardTitle className='flex items-center'>
             <Pencil className='mr-2 h-4 w-4' />
-            Exam Simulation Mode
+            Simulate Exam
           </CardTitle>
           <Button variant='ghost' size='sm' className='h-8 w-8 p-0'>
             {isExpanded ? (
