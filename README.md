@@ -7,4 +7,4 @@ Microeconomic Analysis and Applications.
 > A university-level introduction to demand and supply, consumer behaviour,
 > production theory, market structures and income distribution theory.
 
-<img width="1667" alt="Screenshot 2025-02-23 at 11 53 51 PM" src="https://github.com/user-attachments/assets/673dc73a-7b1d-45b4-ac4d-48ca3a35a86c" />
+<img width="1667" alt="Screenshot 2025-02-25 at 12 36 49 AM" src="https://github.com/user-attachments/assets/eb09fa2e-e317-49b9-b63c-3814edffc0c5" />
