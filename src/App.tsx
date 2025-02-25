@@ -1,11 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { ChevronLeft, ChevronRight, RotateCcw, XCircle } from 'lucide-react';
 
 import { CategoryTabs } from './components/category-tabs';
 import { ExamComplete } from './components/exam-complete';
 import { ExamSettings } from './components/exam-settings';
 import { FigureDisplay } from './components/figure-display';
 import { Layout } from './components/layout';
+import { QuestionTimeline } from './components/question-timeline';
 import { useQuiz } from './providers/quiz-provider';
 
 const App = () => {
@@ -44,6 +45,8 @@ const App = () => {
                 isActive={Boolean(quizState.examMode)}
                 onEnd={handleEndExam}
               />
+
+              {quizState.randomizedQuestions.length > 1 && <QuestionTimeline />}
 
               <div className='mb-4 flex items-center justify-between'>
                 <span className='text-sm text-muted-foreground'>
@@ -120,7 +123,11 @@ const App = () => {
                   onClick={quizState.examMode ? handleExamCancel : handleReset}
                   className='flex items-center'
                 >
-                  <RotateCcw className='h-4 w-4' />
+                  {quizState.examMode ? (
+                    <XCircle className='h-4 w-4' />
+                  ) : (
+                    <RotateCcw className='h-4 w-4' />
+                  )}
                   {quizState.examMode ? 'Cancel Exam' : 'Reset'}
                 </Button>
 

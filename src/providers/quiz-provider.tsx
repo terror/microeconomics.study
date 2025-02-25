@@ -28,6 +28,7 @@ interface QuizProviderState {
   handleExamCancel: () => void;
   handleNextQuestion: () => void;
   handlePrevQuestion: () => void;
+  handleQuestionClick: (questionIndex: number) => void;
   handleReset: () => void;
   handleStartExam: (duration: number) => void;
 }
@@ -273,6 +274,23 @@ export const QuizProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
+  const handleQuestionClick = (questionIndex: number) => {
+    if (
+      questionIndex >= 0 &&
+      questionIndex < quizState.randomizedQuestions.length
+    ) {
+      const wasAnswered = answeredQuestionsSet.has(questionIndex);
+
+      updateQuizState({
+        currentQuestion: questionIndex,
+        selectedAnswer: wasAnswered
+          ? quizState.userAnswers[questionIndex]
+          : null,
+        showFeedback: wasAnswered && !quizState.examMode,
+      });
+    }
+  };
+
   const totalAnswered = Object.keys(quizState.userAnswers).length;
 
   const examPercentage = Math.round(
@@ -301,6 +319,7 @@ export const QuizProvider = ({ children }: { children: React.ReactNode }) => {
     handleExamCancel,
     handleNextQuestion,
     handlePrevQuestion,
+    handleQuestionClick,
     handleReset,
     handleStartExam,
   };
