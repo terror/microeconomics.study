@@ -5,7 +5,7 @@ import { Figure7_1 } from '@/figures/figure-7-1';
 import { ChevronLeft, ChevronRight, RotateCcw, Trophy } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-import { ExamMode } from './components/exam-mode';
+import { ExamSettings } from './components/exam-mode';
 import { ModeToggle } from './components/mode-toggle';
 import { Figure10_5 } from './figures/figure-10-5';
 import { Figure10_6 } from './figures/figure-10-6';
@@ -434,7 +434,7 @@ const App = () => {
               );
             })}
           </div>
-          <ExamMode
+          <ExamSettings
             categoryName={
               activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)
             }

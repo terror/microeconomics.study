@@ -19,7 +19,7 @@ import {
 } from 'lucide-react';
 import React, { useState } from 'react';
 
-type ExamModeProps = {
+type ExamSettingsProps = {
   categoryName: string;
   totalQuestions: number;
   onStart: (duration: number) => void;
@@ -27,29 +27,27 @@ type ExamModeProps = {
   onEnd: () => void;
 };
 
-export const ExamMode: React.FC<ExamModeProps> = ({
+export const ExamSettings: React.FC<ExamSettingsProps> = ({
   categoryName,
   totalQuestions,
   onStart,
   isActive,
   onEnd,
 }) => {
-  // Recommended time based on number of questions (1.5 minutes per question)
   const recommendedTime = Math.ceil(totalQuestions * 1.5);
+
   const presetTimes = [
     { label: 'Short', minutes: 30 },
     { label: 'Standard', minutes: recommendedTime },
     { label: 'Extended', minutes: recommendedTime * 1.5 },
   ];
 
-  // Initialize selectedDuration with the first preset (Short)
   const [selectedDuration, setSelectedDuration] = useState<number>(
     presetTimes[0].minutes
   );
-  // Track whether the card is expanded
+
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
-  // Format total time: show hours if more than 60 minutes
   const formatTotalTime = (minutes: number): string => {
     if (minutes > 60) {
       const hours = Math.floor(minutes / 60);
@@ -65,14 +63,11 @@ export const ExamMode: React.FC<ExamModeProps> = ({
     }
   };
 
-  // Format time per question: show seconds if less than 1 minute
   const formatTimePerQuestion = (timeInMinutes: number): string => {
     if (timeInMinutes < 1) {
-      // Convert to seconds and round to nearest second
       const seconds = Math.round(timeInMinutes * 60);
       return `${seconds} sec/q`;
     } else {
-      // Round to 2 decimal places for minutes
       return `${Math.round(timeInMinutes * 100) / 100} min/q`;
     }
   };
