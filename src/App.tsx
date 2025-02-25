@@ -336,7 +336,7 @@ const App = () => {
   const examScore = quizState.correctAnswers;
 
   const examPercentage =
-    totalAnswered > 0 ? Math.round((examScore / totalAnswered) * 100) : 0;
+    totalAnswered > 0 ? Math.round((examScore / quizState.randomizedQuestions.length) * 100) : 0;
 
   if (quizState.examComplete) {
     return (
@@ -388,7 +388,7 @@ const App = () => {
                   className='p-4'
                   variant='outline'
                   onClick={() =>
-                    updateQuizState({ currentQuestion: 1, examComplete: false })
+                    updateQuizState({ currentQuestion: 0, examComplete: false, showFeedback: true })
                   }
                 >
                   Review Answers
