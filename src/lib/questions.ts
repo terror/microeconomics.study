@@ -1665,4 +1665,219 @@ export const questions: Question[] = [
     category: 'final',
     answer: 2,
   },
+  {
+    id: 130,
+    question:
+      'A monopolistic firm faces a downward-sloping demand curve because',
+    options: [
+      'there are a large number of firms in the industry, all selling the same product.',
+      'the monopolistic firm can exploit economies of scale.',
+      'the demand for its product is always inelastic.',
+      'the market price is affected by the amount sold by a monopolistic firm.',
+      'marginal revenue is negative throughout the feasible range of output.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 131,
+    question:
+      'Suppose the market for gasoline retailing (gas stations) in an island economy has 12 firms. The two largest firms each account for 30% of sales, the third accounts for 15%, the fourth for 7%, the fifth for 4% and the remaining firms for 2% each. Which of the following statements best describes the structure of this local industry?',
+    options: [
+      'This industry is an oligopoly.',
+      'This industry is perfectly competitive.',
+      'This industry is a monopoly.',
+      'This industry is monopolistically competitive.',
+      'Either A or D could be correct.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 132,
+    question:
+      "If a regulatory agency imposes a lump-sum tax on a monopolist (i.e., a tax that is independent of the level of output) it will reduce the firm's profits because the tax increases",
+    options: [
+      'price whereas quantity demanded falls.',
+      'all costs as it shifts the demand curve to the left.',
+      'all costs as it shifts the demand curve to the right.',
+      'both the LRAC and the MC, leaving price and output unchanged.',
+      'the LRAC but not the MC, leaving price and output unchanged.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 133,
+    question:
+      'Suppose Spain is currently producing 90 units of wine and 10 units of cheese, but to produce 10 more units of cheese it must sacrifice 30 units of wine. Further, suppose that Portugal produces 45 units of wine and 45 units of cheese, but to produce 10 more units of cheese it must sacrifice only 10 units of wine. It can be concluded that',
+    options: [
+      'Portugal has an absolute advantage in both wine and cheese production.',
+      'Spain has an absolute advantage in both wine and cheese production.',
+      'Spain has a comparative advantage in the production of wine and Portugal has a comparative advantage in the production of cheese.',
+      'Portugal has an absolute advantage in wine production and Spain has an absolute advantage in cheese production.',
+      'more information is needed to conclude anything about comparative advantage in either country.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 134,
+    question: 'Automobile emissions standards are an example of',
+    options: [
+      'direct regulatory pollution controls.',
+      'emissions taxes.',
+      'a market-based environmental policy.',
+      'market power.',
+      'tradable emissions standards.',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 135,
+    question:
+      'Which of the following cases are examples of price discrimination? 1. Airlines charge different fares for business people than tourist travelers. 2. Young males are charged higher premiums for car insurance than older males or women. 3. A local phone company charges different telephone rates to residential and business users.',
+    options: ['1 only', '2 only', '3 only', '1 and 3 only', '1, 2, and 3'],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 136,
+    question: 'A firm is said to have "market power" only when',
+    options: [
+      'it has the ability to choose its own profit-maximizing level of output.',
+      'it has the ability to influence the price of its product.',
+      'it is one of 25 or fewer firms in the industry.',
+      'its demand curve is the market demand curve.',
+      'it is one of 10 or fewer firms in the industry.',
+    ],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 137,
+    question: "All points on a country's production possibilities boundary are",
+    options: [
+      'Pareto optimal.',
+      'points at which P = MC for all goods.',
+      'not productively efficient.',
+      'allocatively efficient.',
+      'productively efficient.',
+    ],
+    category: 'final',
+    answer: 4,
+  },
+  {
+    id: 138,
+    question:
+      'Consider an industry in which there are significant scale economies. An implication is that',
+    options: [
+      'the firms in the industry will behave as perfect competitors.',
+      'this industry is more efficient than others.',
+      'the minimum efficient scale of operation occurs at fairly low output levels.',
+      'a large share of the market would be required by each firm to achieve the lowest possible cost per unit.',
+      'barriers to entry in the industry are non-existent.',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 139,
+    question:
+      'Which of the following phenomena is NOT an example of market failure?',
+    options: [
+      'moral hazard',
+      'asymmetric information',
+      'a positive externality',
+      'diminishing marginal returns',
+      'public goods',
+    ],
+    category: 'final',
+    answer: 3,
+  },
+  {
+    id: 140,
+    question:
+      'Which of the following refers to products that differ from each other enough that they can be sold at different prices, but are similar enough that they can be considered the same product?',
+    options: [
+      'inferior products',
+      'necessary products',
+      'differentiated products',
+      'complementary products',
+      'standardized products',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 141,
+    question:
+      'A policy that puts a price on greenhouse-gas (GHG) emissions will help to reduce emissions because',
+    options: [
+      'world energy intensity will increase.',
+      "it will shift firms' marginal cost of abatement curves downward.",
+      'it provides incentives for firms and consumers to switch to cleaner energy sources.',
+      'energy intensity of GDP will increase.',
+      "it will shift firms' marginal cost of abatement curves upward.",
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 142,
+    question:
+      'The economic efficiency of a natural monopoly can be improved with the use of two-part tariffs because it allows the monopoly to',
+    options: [
+      'charge users according to their willingness to pay.',
+      'charge users separately for fixed and variable costs.',
+      'lower its total costs.',
+      'charge residential users different rates than business users.',
+      'charge users according to their ability to pay.',
+    ],
+    category: 'final',
+    answer: 1,
+  },
+  {
+    id: 143,
+    question:
+      'In an imperfectly competitive market, changes in market conditions are often signalled to the individual firms by a change in the',
+    options: [
+      "firm's sales.",
+      'cost conditions.',
+      'elasticity of supply.',
+      'government policy.',
+      'price of the product.',
+    ],
+    category: 'final',
+    answer: 0,
+  },
+  {
+    id: 144,
+    question:
+      'The market demand curve for a perfectly competitive industry is typically',
+    options: [
+      'infinitely elastic.',
+      "identical to the competitive firm's demand curve.",
+      'downward sloping.',
+      'a rectangular hyperbola.',
+      'upward sloping.',
+    ],
+    category: 'final',
+    answer: 2,
+  },
+  {
+    id: 145,
+    question:
+      'Which of the following producers operate in a market structure most closely approximated by perfect competition?',
+    options: [
+      'a British Columbia peach grower.',
+      'a Safeway grocery store',
+      'the Bank of Montreal',
+      'Air Canada',
+      'a restaurant in your neighbourhood',
+    ],
+    category: 'final',
+    answer: 0,
+  },
 ];
