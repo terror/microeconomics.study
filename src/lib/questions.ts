@@ -765,6 +765,186 @@ export const questions: Question[] = [
   {
     id: 63,
     question:
+      'Consider the demand curves for two products with the same starting price. Now suppose there is an identical price change for each product. If the resulting percentage change in quantity demanded is greater for one (D₁) than the other (D₂), we can conclude',
+    options: [
+      'that D₁ is inelastic and D₂ is elastic.',
+      'that D₁ is elastic and D₂ is inelastic.',
+      'that D₁ is more elastic than D₂.',
+      'that D₂ is more elastic than D₁.',
+      'nothing about their relative elasticities.',
+    ],
+    category: 'midterm',
+    answer: 2,
+  },
+  {
+    id: 64,
+    question:
+      'Which is the best description of positive statements? Positive statements',
+    options: [
+      'are seldom employed in social sciences like economics.',
+      'have been verified by appeal to factual evidence.',
+      'form the basis of all normative arguments.',
+      'are falsifiable in principle by appeal to factual evidence.',
+      'have no place in economics because economics deals only with value judgments.',
+    ],
+    category: 'midterm',
+    answer: 3,
+  },
+  {
+    id: 65,
+    question: '"Excess demand" can also be described as',
+    options: [
+      'quantity supplied exceeding quantity demanded.',
+      'the area to the right of the equilibrium price on a supply and demand diagram.',
+      'quantity demanded exceeding quantity supplied.',
+      'excess supply.',
+      'the area to the left of the equilibrium price on a supply and demand diagram.',
+    ],
+    category: 'midterm',
+    answer: 2,
+  },
+  {
+    id: 66,
+    question:
+      "Consider the price elasticity of supply. If firms' costs rise rapidly as quantity supplied increases, the",
+    options: [
+      'elasticity of demand will tend to be low.',
+      'demand curve will tend to be steep.',
+      'supply curve will tend to be flat.',
+      'price elasticity of supply will tend to be high.',
+      'price elasticity of supply will tend to be low.',
+    ],
+    category: 'midterm',
+    answer: 4,
+  },
+  {
+    id: 67,
+    question:
+      'Suppose a market is in equilibrium at price P₀, and then an excise tax of t dollars per unit of the good is imposed. At a price of (P₀ +t) there will be excess ________ for the good unless the demand curve is ________.',
+    options: [
+      'supply; vertical',
+      'tax; unit elastic',
+      'demand; horizontal',
+      'demand; vertical',
+      'supply; horizontal',
+    ],
+    category: 'midterm',
+    answer: 0,
+  },
+  {
+    id: 68,
+    question:
+      'Which of the following represents a typical "real" flow (as opposed to a financial flow) in the circular flow of income?',
+    options: [
+      'money payments going from consumers to producers',
+      'goods going from consumers to producers',
+      'goods going from producers to consumers',
+      'factor services going from producers to consumers',
+      'money payments going from producers to consumers',
+    ],
+    category: 'midterm',
+    answer: 2,
+  },
+  {
+    id: 69,
+    question:
+      'If the demand for some good fluctuates, but the supply curve is stable, then which of the following combinations would generally yield the greatest quantity fluctuations?',
+    options: [
+      'small demand fluctuations and elastic supply',
+      'large demand fluctuations and elastic supply',
+      'small demand fluctuations and unit elastic supply',
+      'small demand fluctuations and inelastic supply',
+      'large demand fluctuations and inelastic supply',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  {
+    id: 70,
+    question:
+      'Suppose a downward-sloping demand curve intersects the horizontal axis at a point where quantity demanded equals 1250 units. What is the "value" that consumers place on the 1250th unit of this good?',
+    options: [
+      'a positive value',
+      '$0',
+      '$1250',
+      'a negative value',
+      'It depends on the position of the supply curve.',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  {
+    id: 71,
+    question:
+      'The imposition of an excise tax will cause the least burden on consumers when demand is',
+    options: [
+      'vertical.',
+      'unit elastic.',
+      'elastic.',
+      'perfectly elastic.',
+      'perfectly inelastic.',
+    ],
+    category: 'midterm',
+    answer: 3,
+  },
+  {
+    id: 72,
+    question:
+      'If the government fixes the price of good X above its free-market equilibrium level, we should expect',
+    options: [
+      'a new free-market equilibrium price to be established.',
+      'a surplus of good X to occur.',
+      'a black market to arise for good X.',
+      'a shortage of good X to occur.',
+      'an excess demand for good X.',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  {
+    id: 73,
+    question:
+      'Suppose there is a decrease in the quantity supplied of copper at each price. This change would imply',
+    options: [
+      'a movement up the supply curve.',
+      'a movement down the supply curve.',
+      'a shift to the left of the supply curve.',
+      'a shift to the right of the supply curve.',
+    ],
+    category: 'midterm',
+    answer: 2,
+  },
+  {
+    id: 74,
+    question:
+      'When economists describe a market for a specific product as being economically "efficient," what do they mean?',
+    options: [
+      'Consumption of the product is such that economic surplus is maximized.',
+      'The quantity of the product produced and consumed is such that the economic surplus is maximized.',
+      'Production of the product is such that economic surplus is maximized.',
+      'Production techniques are such that resources are used in the most technologically efficient manner.',
+      'There are no price controls in place in that market.',
+    ],
+    category: 'midterm',
+    answer: 1,
+  },
+  {
+    id: 75,
+    question:
+      'The price of a good or a service can be determined by free interaction of demand and supply or by a government price regulation. One important difference between these two price-determining methods is',
+    options: [
+      'there are no shortages or surpluses at the free-market equilibrium price.',
+      'one is capitalist and the other is communist.',
+      'that a regulated price above the equilibrium price will always result in shortages.',
+      'the government is in the best position to know the needs of the people.',
+      'regulated prices are fairer since more people can then afford the goods or services.',
+    ],
+    category: 'midterm',
+    answer: 0,
+  },
+  {
+    id: 76,
+    question:
       'A monopoly is distinguished from a firm operating under any other market structure in the following way: The monopoly',
     options: [
       'faces a demand curve which is identical to the market demand curve.',
@@ -777,7 +957,7 @@ export const questions: Question[] = [
     answer: 0,
   },
   {
-    id: 64,
+    id: 77,
     question:
       'Suppose a monopolist faces the demand curve and cost curves shown in Figure 10-5. If the monopolist is practicing perfect price discrimination, how does this differ from the situation where this firm is charging a single price for its product?',
     options: [
@@ -792,7 +972,7 @@ export const questions: Question[] = [
     figure: 'figure-10-5',
   },
   {
-    id: 65,
+    id: 78,
     question:
       'Consider two firms, A and B, that are producing the same product but with different average costs. Economists say this situation reflects a problem of',
     options: [
@@ -806,7 +986,7 @@ export const questions: Question[] = [
     answer: 3,
   },
   {
-    id: 66,
+    id: 79,
     question:
       'Suppose a perfectly competitive market with no government intervention achieves equilibrium at point A. If the social marginal costs and social marginal benefits are represented by MC0 and MB1, respectively, then there exists',
     options: [
@@ -821,7 +1001,7 @@ export const questions: Question[] = [
     figure: 'figure-16-1',
   },
   {
-    id: 67,
+    id: 80,
     question:
       'Consider a natural monopoly that has declining LRAC over the entire range of the market demand curve. If it is regulated and required to charge a price that is equal to marginal cost, the resulting level of output is',
     options: [
@@ -835,7 +1015,7 @@ export const questions: Question[] = [
     answer: 3,
   },
   {
-    id: 68,
+    id: 81,
     question:
       "Between 1995 and 2014, Canada's greenhouse gas emissions ________ by ________%.",
     options: [
@@ -849,7 +1029,7 @@ export const questions: Question[] = [
     answer: 3,
   },
   {
-    id: 69,
+    id: 82,
     question:
       'Suppose there are many independent dry cleaners in your city, each of which is earning economic profits. According to the theory of monopolistic competition,',
     options: [
@@ -863,7 +1043,7 @@ export const questions: Question[] = [
     answer: 2,
   },
   {
-    id: 70,
+    id: 83,
     question:
       'The figure shows an individual firm in a perfectly competitive industry in which all firms have joined together to form a cartel. This firm has agreed to restrict its output to 600 units per day and raise its price to $5 per unit. As a participating member of the cartel in this industry, what are the additional profits this firm is earning, in comparison to the profits it was earning prior to joining the cartel?',
     options: [
@@ -878,7 +1058,7 @@ export const questions: Question[] = [
     figure: 'figure-10-6',
   },
   {
-    id: 71,
+    id: 84,
     question:
       'Suppose a perfectly competitive market with no government intervention achieves equilibrium at point A. If the social marginal costs and social marginal benefits are represented by MC0 and MB0, respectively, then there exists',
     options: [
@@ -893,7 +1073,7 @@ export const questions: Question[] = [
     figure: 'figure-16-1',
   },
   {
-    id: 72,
+    id: 85,
     question:
       'A monopolistically competitive firm maximizes profits in the short run',
     options: [
@@ -907,7 +1087,7 @@ export const questions: Question[] = [
     answer: 1,
   },
   {
-    id: 73,
+    id: 86,
     question:
       'Which of the following statements apply to a perfectly competitive market? 1. There is freedom of entry and exit of firms in the industry. 2. Consumers prefer certain brands over others. 3. All firms in the industry are price takers.',
     options: ['1 only', '2 only', '3 only', '1 and 2 only', '1 and 3 only'],
@@ -915,7 +1095,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 74,
+    id: 87,
     question:
       'Trade, whether between individuals or nations, generally promotes',
     options: [
@@ -929,7 +1109,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 75,
+    id: 88,
     question: "All points on a country's production possibilities boundary are",
     options: [
       'allocatively efficient.',
@@ -942,7 +1122,7 @@ export const questions: Question[] = [
     answer: 1,
   },
   {
-    id: 76,
+    id: 89,
     question: 'Japan has an absolute advantage in',
     options: [
       'steel.',
@@ -956,7 +1136,7 @@ export const questions: Question[] = [
     figure: 'figure-32-1',
   },
   {
-    id: 77,
+    id: 90,
     question:
       'If there are economic profits in a monopolistically competitive industry, they will generally be competed away through the',
     options: [
@@ -970,7 +1150,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 78,
+    id: 91,
     question:
       'If a country has a comparative advantage in the production of soybeans, and it trades freely with other countries, it will most probably',
     options: [
@@ -984,7 +1164,7 @@ export const questions: Question[] = [
     answer: 2,
   },
   {
-    id: 79,
+    id: 92,
     question:
       'If Paperland engages in international trade and the world price is PA, the amount of newsprint produced by Paperland will be',
     options: ['Q1.', 'Q2.', 'Q3.', 'Q4.', 'Q5.'],
@@ -993,7 +1173,7 @@ export const questions: Question[] = [
     figure: 'figure-32-5',
   },
   {
-    id: 80,
+    id: 93,
     question:
       'Suppose the world price of granite is $900. What quantity will Canada import or export?',
     options: [
@@ -1007,14 +1187,14 @@ export const questions: Question[] = [
     answer: 2,
   },
   {
-    id: 81,
+    id: 94,
     question: 'The total cost of producing 6 units of output is',
     options: ['$430.', '$330.', '$100.', '$230.', '$71.67.'],
     category: 'final',
     answer: 0,
   },
   {
-    id: 82,
+    id: 95,
     question: 'The average revenue curve for a single-price monopolist',
     options: [
       'is a horizontal line, equal to the price of its product.',
@@ -1027,7 +1207,7 @@ export const questions: Question[] = [
     answer: 3,
   },
   {
-    id: 83,
+    id: 96,
     question:
       'Suppose each of Firms A, B, and C are producing 500 kilos of potatoes. Is this industry productively efficient?',
     options: [
@@ -1042,7 +1222,7 @@ export const questions: Question[] = [
     figure: 'figure-12-1',
   },
   {
-    id: 84,
+    id: 97,
     question:
       'The "informal defence" of free markets includes the argument that competitive markets',
     options: ['1 only', '2 only', '3 only', '1 and 2', '2 and 3'],
@@ -1050,7 +1230,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 85,
+    id: 98,
     question: 'Automobile emissions standards are an example of',
     options: [
       'emissions taxes.',
@@ -1063,7 +1243,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 86,
+    id: 99,
     question:
       'Consider the following statement of equalities: P = MC = minimum SRATC = minimum LRAC. This statement of equalities best applies to which of the following?',
     options: [
@@ -1077,7 +1257,7 @@ export const questions: Question[] = [
     answer: 3,
   },
   {
-    id: 87,
+    id: 100,
     question:
       'It is common for a cartel to collapse when one or more firms in the cartel',
     options: [
@@ -1091,7 +1271,7 @@ export const questions: Question[] = [
     answer: 2,
   },
   {
-    id: 88,
+    id: 101,
     question:
       'In order to maximize its profits, the firm should continue to produce in the short run even if the market price is less than its ATC as long as the price is greater than or equal to',
     options: ['AFC.', 'AVC.', 'MC.', 'TC.', 'TVC.'],
@@ -1099,7 +1279,7 @@ export const questions: Question[] = [
     answer: 1,
   },
   {
-    id: 89,
+    id: 102,
     question:
       'Before any trade takes place, the opportunity cost of a unit of steel is',
     options: [
@@ -1114,7 +1294,7 @@ export const questions: Question[] = [
     figure: 'figure-32-1',
   },
   {
-    id: 90,
+    id: 103,
     question: 'What is meant by the term "market failure"?',
     options: [
       'that allocative efficiency has not been achieved',
@@ -1127,7 +1307,7 @@ export const questions: Question[] = [
     answer: 0,
   },
   {
-    id: 91,
+    id: 104,
     question:
       'If the ratio Xa/Ya is less than the ratio Xb/Yb, then we can say with certainty that',
     options: [
@@ -1141,7 +1321,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 92,
+    id: 105,
     question: 'Economic losses in an industry are a signal that',
     options: [
       'too few resources are allocated to the industry.',
@@ -1154,7 +1334,7 @@ export const questions: Question[] = [
     answer: 1,
   },
   {
-    id: 93,
+    id: 106,
     question:
       'The existence of imperfectly competitive firms implies a market failure because',
     options: [
@@ -1168,7 +1348,7 @@ export const questions: Question[] = [
     answer: 0,
   },
   {
-    id: 94,
+    id: 107,
     question:
       'If the monopolist is practicing perfect price discrimination and is maximizing its profits, the consumer surplus is represented by the area',
     options: [
@@ -1183,7 +1363,7 @@ export const questions: Question[] = [
     figure: 'figure-10-5',
   },
   {
-    id: 95,
+    id: 108,
     question:
       'Consider a perfectly competitive firm when its industry is in long-run equilibrium. Which of the following statements about the firm is correct?',
     options: [
@@ -1197,7 +1377,7 @@ export const questions: Question[] = [
     answer: 3,
   },
   {
-    id: 96,
+    id: 109,
     question:
       "Consider an example of the prisoner's dilemma where 2 firms are making sealed bids on a highway-construction contract and each firm is allowed to bid either $100 million or $120 million. If both firms bid the same price, the job is shared equally and each firm earns half the value of its bid. Otherwise the lowest bidder wins the contract and receives the full value of its bid (and the other bidder earns zero). The cooperative outcome in this situation is",
     options: [
@@ -1211,7 +1391,7 @@ export const questions: Question[] = [
     answer: 0,
   },
   {
-    id: 97,
+    id: 110,
     question:
       "Consider an example of the prisoner's dilemma where 2 firms are making sealed bids on a contract and each firm is allowed to bid either $100 or $180. If both firms bid the same price, the job is shared equally and each firm earns half the value of its bid. Otherwise the lowest bidder wins the contract and receives the full value of its bid (and the other bidder earns zero). The cooperative outcome in this situation is",
     options: [
@@ -1225,7 +1405,7 @@ export const questions: Question[] = [
     answer: 2,
   },
   {
-    id: 98,
+    id: 111,
     question:
       'Consider the case of a natural monopoly with falling long-run average costs. If regulation sets the price equal to marginal cost, then',
     options: [
@@ -1239,7 +1419,7 @@ export const questions: Question[] = [
     answer: 3,
   },
   {
-    id: 99,
+    id: 112,
     question:
       'If entry into a monopolistically competitive industry occurs because of positive profits earned by the existing firms, the',
     options: [
@@ -1253,7 +1433,7 @@ export const questions: Question[] = [
     answer: 0,
   },
   {
-    id: 100,
+    id: 113,
     question:
       'The banning of wood-burning stoves and fireplaces is an example of',
     options: [
@@ -1267,7 +1447,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 101,
+    id: 114,
     question:
       'At the level of the industry, the condition for productive efficiency is that',
     options: [
@@ -1281,7 +1461,7 @@ export const questions: Question[] = [
     answer: 2,
   },
   {
-    id: 102,
+    id: 115,
     question:
       'A monopolistic firm faces a downward-sloping demand curve because',
     options: [
@@ -1295,7 +1475,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 103,
+    id: 116,
     question:
       'Consider the gains from trade. What is the best definition of "absolute advantage"?',
     options: [
@@ -1309,7 +1489,7 @@ export const questions: Question[] = [
     answer: 1,
   },
   {
-    id: 104,
+    id: 117,
     question:
       'Government intervention in an effort to promote allocative efficiency in all industries would likely impose a cost in terms of economic growth. One explanation for this is that',
     options: [
@@ -1323,7 +1503,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 105,
+    id: 118,
     question:
       'One method of regulating a natural monopoly is known as average-cost pricing. Using this method, the regulator requires that the price be set equal to',
     options: [
@@ -1337,7 +1517,7 @@ export const questions: Question[] = [
     answer: 3,
   },
   {
-    id: 106,
+    id: 119,
     question:
       'Economists describe prices as "signals" in a market economy because',
     options: [
@@ -1351,7 +1531,7 @@ export const questions: Question[] = [
     answer: 2,
   },
   {
-    id: 107,
+    id: 120,
     question:
       'If Paperland does not engage in international trade, the equilibrium quantity of newsprint produced domestically will be',
     options: ['Q1.', 'Q2.', 'Q3.', 'Q4.', 'Q5.'],
@@ -1360,7 +1540,7 @@ export const questions: Question[] = [
     figure: 'figure-32-5',
   },
   {
-    id: 108,
+    id: 121,
     question: 'From the payoff matrix we can infer that',
     options: [
       'both firms are indifferent between an equilibrium (Produce 1000 units, Produce 1000 units) and (Produce 2000 units, Produce 2000 units).',
@@ -1374,7 +1554,7 @@ export const questions: Question[] = [
     figure: 'figure-payoff-matrix',
   },
   {
-    id: 109,
+    id: 122,
     question: 'How is a negative externality depicted in this diagram?',
     options: [
       'Marginal social cost is greater than the marginal private cost.',
@@ -1388,7 +1568,7 @@ export const questions: Question[] = [
     figure: 'figure-17-1',
   },
   {
-    id: 110,
+    id: 123,
     question:
       'Prior to joining the cartel, this firm was operating in a long-run equilibrium. Its output as a perfectly competitive firm was ________ units per day; its price was ________ per unit; and its economic profits were ________ per day.',
     options: [
@@ -1403,7 +1583,7 @@ export const questions: Question[] = [
     figure: 'figure-10-6',
   },
   {
-    id: 111,
+    id: 124,
     question: 'Under what circumstances can a cartel succeed in the long run?',
     options: [
       'There is free entry of new firms.',
@@ -1416,7 +1596,7 @@ export const questions: Question[] = [
     answer: 1,
   },
   {
-    id: 112,
+    id: 125,
     question:
       'Consider a firm in a perfectly competitive market. If this firm were to raise its price, its',
     options: [
@@ -1430,7 +1610,7 @@ export const questions: Question[] = [
     answer: 4,
   },
   {
-    id: 113,
+    id: 126,
     question:
       "The increases in a nation's output and consumption that result from specialization and trade are called",
     options: [
@@ -1444,7 +1624,7 @@ export const questions: Question[] = [
     answer: 0,
   },
   {
-    id: 114,
+    id: 127,
     question:
       'At what price and quantity combination will Canada not engage in international trade in granite?',
     options: [
@@ -1458,7 +1638,7 @@ export const questions: Question[] = [
     answer: 2,
   },
   {
-    id: 115,
+    id: 128,
     question:
       'Suppose a perfectly competitive market with no government intervention achieves equilibrium at point A. If the social marginal costs and social marginal benefits are represented by MC1 and MB0, respectively, then there exists',
     options: [
@@ -1472,7 +1652,7 @@ export const questions: Question[] = [
     figure: 'figure-16-1',
   },
   {
-    id: 116,
+    id: 129,
     question:
       'Consider a country that is initially autarkic and then engages freely in international trade. If this country has a comparative advantage in the production of soybeans, it will most probably',
     options: [
