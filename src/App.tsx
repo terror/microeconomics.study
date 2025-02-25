@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import { ModeToggle } from './components/mode-toggle';
 import { usePersistedState } from './hooks/use-persisted-state';
 import { questions as originalQuestions } from './lib/questions';
+import { Category } from './lib/types';
 
 const Figure5_1 = () => (
   <svg viewBox='0 0 400 300' className='mx-auto w-full max-w-lg'>
@@ -644,6 +645,7 @@ interface RandomizedQuestion {
   originalIndices: number[];
   correctIndex: number;
   figure?: string;
+  category: Category;
 }
 
 interface QuizState {
@@ -653,6 +655,7 @@ interface QuizState {
   selectedAnswer: number | null;
   showFeedback: boolean;
   randomizedQuestions: RandomizedQuestion[];
+  selectedCategory: Category | 'all';
 }
 
 const shuffleArray = <T,>(array: T[]): T[] => {
@@ -666,8 +669,13 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return shuffled;
 };
 
-const randomizeQuestions = () => {
-  const shuffledQuestions = shuffleArray([...originalQuestions]);
+const randomizeQuestions = (category: Category | 'all' = 'all') => {
+  const filteredQuestions =
+    category === 'all'
+      ? originalQuestions
+      : originalQuestions.filter((q) => q.category === category);
+
+  const shuffledQuestions = shuffleArray([...filteredQuestions]);
 
   return shuffledQuestions.map((q) => {
     const indices = q.options.map((_, idx) => idx);
@@ -680,6 +688,7 @@ const randomizeQuestions = () => {
       originalIndices: shuffledIndices,
       correctIndex: shuffledIndices.indexOf(q.answer),
       figure: q.figure,
+      category: q.category,
     };
   });
 };
@@ -691,7 +700,14 @@ const INITIAL_STATE: QuizState = {
   selectedAnswer: null,
   showFeedback: false,
   randomizedQuestions: randomizeQuestions(),
+  selectedCategory: 'all',
 };
+
+// Get unique categories from questions
+const categories: (Category | 'all')[] = [
+  'all',
+  ...new Set(originalQuestions.map((q) => q.category)),
+];
 
 const App = () => {
   const [quizState, setQuizState] = usePersistedState<QuizState>(
@@ -747,7 +763,18 @@ const App = () => {
   const handleReset = () => {
     const newState = {
       ...INITIAL_STATE,
-      randomizedQuestions: randomizeQuestions(),
+      selectedCategory: quizState.selectedCategory,
+      randomizedQuestions: randomizeQuestions(quizState.selectedCategory),
+    };
+
+    setQuizState(newState);
+  };
+
+  const handleCategoryChange = (category: Category | 'all') => {
+    const newState = {
+      ...INITIAL_STATE,
+      selectedCategory: category,
+      randomizedQuestions: randomizeQuestions(category),
     };
 
     setQuizState(newState);
@@ -761,6 +788,21 @@ const App = () => {
   const currentQ = quizState.randomizedQuestions[quizState.currentQuestion];
   const isCorrect = quizState.selectedAnswer === currentQ.correctIndex;
 
+  // Create a count of questions by category
+  const questionsCount = categories.reduce(
+    (acc, category) => {
+      if (category === 'all') {
+        acc[category] = originalQuestions.length;
+      } else {
+        acc[category] = originalQuestions.filter(
+          (q) => q.category === category
+        ).length;
+      }
+      return acc;
+    },
+    {} as Record<string, number>
+  );
+
   return (
     <>
       <div className='m-4 flex items-center font-bold'>
@@ -771,6 +813,26 @@ const App = () => {
       </div>
       <div className='mx-auto max-w-4xl p-4'>
         <div className='m-4'>
+          {/* Category Tabs */}
+          <div className='mb-6 flex flex-wrap gap-2 border-b border-border'>
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`px-4 py-2 text-sm font-medium transition-colors ${
+                  quizState.selectedCategory === category
+                    ? 'border-b-2 border-primary text-primary'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+                onClick={() => handleCategoryChange(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+                <span className='ml-2 text-xs text-muted-foreground'>
+                  ({questionsCount[category]})
+                </span>
+              </button>
+            ))}
+          </div>
+
           <div className='mb-4 flex items-center justify-between'>
             <span className='text-sm text-muted-foreground'>
               Question {quizState.currentQuestion + 1} of{' '}

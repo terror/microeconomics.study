@@ -11,6 +11,7 @@ export const questions: Question[] = [
       'government purchases.',
       'price increases.',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -24,6 +25,7 @@ export const questions: Question[] = [
       'windfall profits will be earned by landlords.',
       'units supplied will be reduced relative to the competitive equilibrium by AF rental units.',
     ],
+    category: 'midterm',
     answer: 4,
     figure: 'figure-5-1',
   },
@@ -37,6 +39,7 @@ export const questions: Question[] = [
       'a graph showing the positive relationship between quantity supplied and price',
       'a timetable showing the quantity supplied at different time periods',
     ],
+    category: 'midterm',
     answer: 0,
   },
   {
@@ -44,6 +47,7 @@ export const questions: Question[] = [
     question:
       'Suppose an economist tells you that the unemployment rate in Canada last year was 7.8%. This is an example of a(n) ________ statement.',
     options: ['normative', 'positive', 'imputed', 'autonomous', 'induced'],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -57,6 +61,7 @@ export const questions: Question[] = [
       'The firm is producing a level of output where capacity is increasing.',
       'The firm is operating above capacity.',
     ],
+    category: 'midterm',
     answer: 4,
   },
   {
@@ -69,6 +74,7 @@ export const questions: Question[] = [
       'There should be one price for gasoline throughout Canada.',
       'Substitutes for fossil fuels should be developed.',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -76,6 +82,7 @@ export const questions: Question[] = [
     question:
       'Suppose capital costs $8 per unit and labour costs $4 per unit. For a profit-maximizing firm operating at its optimal factor mix, if the marginal product of capital is 60, the marginal product of labour must be',
     options: ['10.', '120.', '30.', '90.', '20.'],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -83,6 +90,7 @@ export const questions: Question[] = [
     question:
       "Geoff is willing to pay $13 for a sixth entrance to a mountain bike park. The market price for entrance is $10.50. The bike park is willing to accept $8.75. The total economic surplus generated from Geoff's sixth trip to the bike park is",
     options: ['$10.50.', '$4.25.', '$2.50.', '$1.75.', '$13.00.'],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -95,6 +103,7 @@ export const questions: Question[] = [
       'the asset has zero sunk costs associated with it.',
       'no money was spent to acquire the asset.',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -102,6 +111,7 @@ export const questions: Question[] = [
     question:
       'Consider the various forms of organization of firms. Which of the following statements about a corporation are true? 1. It is an entity separate from the individuals who own it. 2. It can incur debt that is an obligation of the corporation but not of its individual owners. 3. It is legally obliged to distribute all profits to shareholders.',
     options: ['1 only', '2 only', '3 only', '1 and 2 only', '2 and 3 only'],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -115,6 +125,7 @@ export const questions: Question[] = [
       'is at a maximum.',
       'is at its minimum.',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -122,6 +133,7 @@ export const questions: Question[] = [
     question:
       'Consider an excise tax imposed on daily parking charges in the downtown of a small city. Before the imposition of the tax, equilibrium price and quantity are $15 and 100 cars parked. (P = $15, Q = 100). The city government imposes a tax of $3 per car parked per day. Market equilibrium adjusts to P = $16 and Q = 95. How much tax revenue does the city government collect per day?',
     options: ['$285', '$1710', '$100', '$95', '$300'],
+    category: 'midterm',
     answer: 0,
   },
   {
@@ -135,6 +147,7 @@ export const questions: Question[] = [
       'the product is certainly a necessity.',
       'the product is a normal good.',
     ],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -148,6 +161,7 @@ export const questions: Question[] = [
       'any specified time period.',
       'one year.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -155,6 +169,7 @@ export const questions: Question[] = [
     question:
       'Suppose a production function for a firm takes the following algebraic form: Q = (0.25)K × (1.5)L2, where Q is the output of garage doors produced per month. Now suppose the firm is operating with 10 units of capital (K = 10) and 8 units of labour (L = 8). What is the output of garage doors per month?',
     options: ['3000', '2400', '300', '240', '24'],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -168,6 +183,7 @@ export const questions: Question[] = [
       'income; negative',
       'price; negative',
     ],
+    category: 'midterm',
     answer: 0,
   },
   {
@@ -175,6 +191,7 @@ export const questions: Question[] = [
     question:
       "Consider the following factors of production: - a pharmaceutical research centre - a hairstylist's scissors - Google headquarters - a cloud computing system - a stapler at a checkout counter. Each of these is an example of",
     options: ['land.', 'capital.', 'goods.', 'labour.', 'services.'],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -188,6 +205,7 @@ export const questions: Question[] = [
       'minimum; cost',
       'maximum; cost',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -201,6 +219,7 @@ export const questions: Question[] = [
       'maintain the previous usage of labour.',
       'increase the marginal product of labour relative to the marginal product of capital.',
     ],
+    category: 'midterm',
     answer: 4,
   },
   {
@@ -214,6 +233,7 @@ export const questions: Question[] = [
       'AVC decreases as long as MC > AVC.',
       'ATC decreases and then increases as output increases.',
     ],
+    category: 'midterm',
     answer: 4,
   },
   {
@@ -221,6 +241,7 @@ export const questions: Question[] = [
     question:
       'Suppose that as the price of some product increases from $4.00 to $5.00 per unit the quantity supplied rises from 500 to 1000 units per month. The price elasticity of supply for this product is',
     options: ['1.0.', '2.0.', '3.0.', '2.5.', '0.33.'],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -234,6 +255,7 @@ export const questions: Question[] = [
       'simple average price of all goods in the given year to that in the base year.',
       'average price of several goods in the base year to that in the given year.',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -246,6 +268,7 @@ export const questions: Question[] = [
       'large corporations and labour organizations.',
       'corporations and governments.',
     ],
+    category: 'midterm',
     answer: 0,
   },
   {
@@ -258,6 +281,7 @@ export const questions: Question[] = [
       "a firm's retained earnings.",
       "a firm's balance in a bank account.",
     ],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -271,6 +295,7 @@ export const questions: Question[] = [
       'rise.',
       'fall.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -284,6 +309,7 @@ export const questions: Question[] = [
       'diminishing marginal utility.',
       'utility maximization.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -296,6 +322,7 @@ export const questions: Question[] = [
       'technological change was not important in improving living standards.',
       'centrally planned economies could provide a more equitable distribution of total output than capitalist economies.',
     ],
+    category: 'midterm',
     answer: 4,
   },
   {
@@ -309,6 +336,7 @@ export const questions: Question[] = [
       'the sum of the areas above the supply curve, but below the market-clearing price of $30 — i.e., areas 3, 4, 7.',
       'the sum of the areas below the demand curve — i.e., areas 1, 2, 3, 4, 5, 6, 7, 8, 9.',
     ],
+    category: 'midterm',
     answer: 0,
     figure: 'figure-5-5',
   },
@@ -323,6 +351,7 @@ export const questions: Question[] = [
       'the quantity supplied.',
       'neither quantity demanded nor quantity supplied.',
     ],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -336,6 +365,7 @@ export const questions: Question[] = [
       'reinforce the substitution effect.',
       'always be larger than the substitution effect.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -349,6 +379,7 @@ export const questions: Question[] = [
       'In the long run, the firm is moving along the existing LRAC curve, whereas in the very-long run, the LRAC curve is shifting down.',
       'There is no distinction between the long run and the very-long run with respect to the LRAC curve.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -362,6 +393,7 @@ export const questions: Question[] = [
       'as a percentage of its value in the base period.',
       'as a proportional weighted average.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -375,6 +407,7 @@ export const questions: Question[] = [
       'legal contract.',
       'negotiation between unions and firms.',
     ],
+    category: 'midterm',
     answer: 0,
   },
   {
@@ -388,6 +421,7 @@ export const questions: Question[] = [
       'if a tax is applied to shipping crates.',
       'if technological conditions for the production of crates deteriorates.',
     ],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -395,6 +429,7 @@ export const questions: Question[] = [
     question:
       'The supply and demand schedules for dozens of roses are given below: Price $10, $20, $30, $40, $50; Quantity Supplied 200, 300, 400, 500, 600; Quantity Demanded 500, 450, 400, 350, 300. How many dozens of roses would actually be purchased if the price in this market were $10?',
     options: ['300', '400', '350', '500', '200'],
+    category: 'midterm',
     answer: 4,
   },
   {
@@ -408,6 +443,7 @@ export const questions: Question[] = [
       'assumption.',
       'variable.',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -421,6 +457,7 @@ export const questions: Question[] = [
       'An endogenous variable is explained within the theory, while an exogenous variable influences the endogenous variables but is determined outside the theory.',
       'An endogenous variable is explained outside the theory and influences an exogenous variable while an exogenous variable is explained within the theory.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -434,6 +471,7 @@ export const questions: Question[] = [
       'change in price / change in quantity demanded',
       'change in quantity demanded / change in price',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -447,6 +485,7 @@ export const questions: Question[] = [
       'the firm achieves increasing returns.',
       'diminishing returns sets in.',
     ],
+    category: 'midterm',
     answer: 2,
     figure: 'figure-7-1',
   },
@@ -455,6 +494,7 @@ export const questions: Question[] = [
     question:
       'Suppose capital costs $10 per unit and labour costs $5 per unit. For a profit-maximizing firm operating at its optimal factor mix, if the marginal product of capital is 50, the marginal product of labour must be',
     options: ['50.', '20.', '100.', '10.', '25.'],
+    category: 'midterm',
     answer: 4,
   },
   {
@@ -462,6 +502,7 @@ export const questions: Question[] = [
     question:
       'Suppose a firm is producing 100 units of output, incurring a total cost of $10,000 and total variable cost of $6000. It can be concluded that average fixed cost is',
     options: ['160.', '40.', '60.', '4000.', '100.'],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -469,6 +510,7 @@ export const questions: Question[] = [
     question:
       "An individual's consumer surplus from some product can be eliminated entirely by: 1. raising the price until very few units are bought. 2. charging a price for each unit that is equal to the individual's marginal value for each unit. 3. raising the price until zero units are purchased.",
     options: ['1 only', '2 only', '3 only', '2 or 3', '1 or 2, but not 3'],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -482,6 +524,7 @@ export const questions: Question[] = [
       'two dependent variables in a functional relation.',
       'a functional relation between X and Y.',
     ],
+    category: 'midterm',
     answer: 4,
   },
   {
@@ -489,6 +532,7 @@ export const questions: Question[] = [
     question:
       'Suppose a firm is producing 500 units of output, incurring a total cost of $700,000 and total fixed cost of $100,000. It can be concluded that average variable cost is',
     options: ['200.', '1600.', '1200.', '600.', '1400.'],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -501,6 +545,7 @@ export const questions: Question[] = [
       'the quantity demanded is less than the quantity supplied.',
       'the equilibrium price is too low.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -514,6 +559,7 @@ export const questions: Question[] = [
       'inelastic.',
       'zero elastic.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -527,6 +573,7 @@ export const questions: Question[] = [
       'marginal product is positive but declining.',
       'average product is falling.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -540,6 +587,7 @@ export const questions: Question[] = [
       'more input X only if its price decreases.',
       'more input X only if its price increases.',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -553,6 +601,7 @@ export const questions: Question[] = [
       'The Canadian Federal government has a debt of approximately $750 billion and an annual deficit of over $25 billion dollars.',
       'Nancy spends $400 per month on her credit card and has a balance owing of $2567.',
     ],
+    category: 'midterm',
     answer: 1,
   },
   {
@@ -566,6 +615,7 @@ export const questions: Question[] = [
       'all units bought with the possible exception of the last unit.',
       'none of the units.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -573,6 +623,7 @@ export const questions: Question[] = [
     question:
       'Consider an excise tax imposed on daily parking charges in the downtown of a small city. Before the imposition of the tax, equilibrium price and quantity are $15 and 100 cars parked. (P = $15, Q = 100). The city government imposes a tax of $3 per car parked per day. Market equilibrium adjusts to P = $16 and Q = 95. After imposition of the tax, what is the daily after-tax price received by the seller per car parked?',
     options: ['$15', '$3', '$1', '$16', '$13'],
+    category: 'midterm',
     answer: 4,
   },
   {
@@ -585,6 +636,7 @@ export const questions: Question[] = [
       'having a limited number of partners, each with limited liability.',
       'having limited liability of all partners.',
     ],
+    category: 'midterm',
     answer: 0,
   },
   {
@@ -597,6 +649,7 @@ export const questions: Question[] = [
       'how to limit human wants so that scarce resources are sufficient',
       'how to plan an economy',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -609,6 +662,7 @@ export const questions: Question[] = [
       "first unit of a good consumed will contribute most to the consumer's satisfaction.",
       'total utility is constant as more units are consumed.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -621,6 +675,7 @@ export const questions: Question[] = [
       'governments should satisfy the needs of the people.',
       'people have limited wants in the face of limited resources.',
     ],
+    category: 'midterm',
     answer: 0,
   },
   {
@@ -628,6 +683,7 @@ export const questions: Question[] = [
     question:
       'Suppose a production function for a firm takes the following algebraic form: Q = (0.5)KL - 40L, where Q is the output of paintbrushes per week. Now suppose the firm is operating with 100 units of capital (K = 100) and 30,000 units of labour (L = 30,000). What is the output of paintbrushes per week?',
     options: ['3,000,000', '30,000', '1,500,000', '300,000', '1,200,000'],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -640,6 +696,7 @@ export const questions: Question[] = [
       'dependent and exogenous',
       'induced and exogenous',
     ],
+    category: 'midterm',
     answer: 2,
   },
   {
@@ -652,6 +709,7 @@ export const questions: Question[] = [
       'a production function.',
       'an economic input function.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -659,6 +717,7 @@ export const questions: Question[] = [
     question:
       'The supply and demand schedules for dozens of roses are given below: Price $10, $20, $30, $40, $50; Quantity Supplied 200, 300, 400, 500, 600; Quantity Demanded 500, 450, 400, 350, 300. The equilibrium price for a dozen roses is',
     options: ['$10.', '$40.', '$20.', '$30.', '$50.'],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -672,6 +731,7 @@ export const questions: Question[] = [
       'goods and services.',
       'a capital resource.',
     ],
+    category: 'midterm',
     answer: 0,
   },
   {
@@ -685,6 +745,7 @@ export const questions: Question[] = [
       'economically efficient at current factor prices and sufficiently flexible to adapt to changing factor prices over time.',
       'economically efficient at current factor prices.',
     ],
+    category: 'midterm',
     answer: 3,
   },
   {
@@ -698,6 +759,7 @@ export const questions: Question[] = [
       'PK ∙ MPK = PL ∙ MPL',
       'PK = PL',
     ],
+    category: 'midterm',
     answer: 2,
   },
 ];
