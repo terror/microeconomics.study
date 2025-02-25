@@ -84,6 +84,7 @@ const INITIAL_STATE: QuizState = {
   answeredQuestions: [],
   correctAnswers: 0,
   currentQuestion: 0,
+  userAnswers: {},
   selectedAnswer: null,
   showFeedback: false,
   randomizedQuestions: randomizeQuestions(),
@@ -117,6 +118,10 @@ const App = () => {
           quizState.randomizedQuestions[quizState.currentQuestion].correctIndex
             ? quizState.correctAnswers + 1
             : quizState.correctAnswers,
+        userAnswers: {
+          ...quizState.userAnswers,
+          [quizState.currentQuestion]: answerIndex,
+        },
       });
     } else {
       setQuizState({
@@ -126,22 +131,32 @@ const App = () => {
     }
   };
 
-  const handleNextQuestion = () => {
-    if (quizState.currentQuestion < quizState.randomizedQuestions.length - 1) {
+  const handlePrevQuestion = () => {
+    if (quizState.currentQuestion > 0) {
+      const prevQuestionIndex = quizState.currentQuestion - 1;
+      const wasAnswered = answeredQuestionsSet.has(prevQuestionIndex);
+
       setQuizState({
-        currentQuestion: quizState.currentQuestion + 1,
-        selectedAnswer: null,
-        showFeedback: false,
+        currentQuestion: prevQuestionIndex,
+        selectedAnswer: wasAnswered
+          ? quizState.userAnswers[prevQuestionIndex]
+          : null,
+        showFeedback: wasAnswered,
       });
     }
   };
 
-  const handlePrevQuestion = () => {
-    if (quizState.currentQuestion > 0) {
+  const handleNextQuestion = () => {
+    if (quizState.currentQuestion < quizState.randomizedQuestions.length - 1) {
+      const nextQuestionIndex = quizState.currentQuestion + 1;
+      const wasAnswered = answeredQuestionsSet.has(nextQuestionIndex);
+
       setQuizState({
-        currentQuestion: quizState.currentQuestion - 1,
-        selectedAnswer: null,
-        showFeedback: false,
+        currentQuestion: nextQuestionIndex,
+        selectedAnswer: wasAnswered
+          ? quizState.userAnswers[nextQuestionIndex]
+          : null,
+        showFeedback: wasAnswered,
       });
     }
   };

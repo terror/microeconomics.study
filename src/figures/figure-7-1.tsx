@@ -41,11 +41,16 @@ export const Figure7_1 = () => (
         strokeWidth='2'
       />
 
-      <text x='250' y='80'  className='fill-foreground text-sm'>
+      <text x='250' y='80' className='fill-foreground text-sm'>
         Total Product
       </text>
 
-      <text x='0' y='150' transform="rotate(-90, 50, 150)" className='fill-foreground text-sm'>
+      <text
+        x='0'
+        y='150'
+        transform='rotate(-90, 50, 150)'
+        className='fill-foreground text-sm'
+      >
         Total Product
       </text>
 
@@ -110,7 +115,12 @@ export const Figure7_1 = () => (
         Average Product
       </text>
 
-      <text x='25' y='150' transform="rotate(-90, 50, 150)" className='fill-foreground text-sm'>
+      <text
+        x='25'
+        y='150'
+        transform='rotate(-90, 50, 150)'
+        className='fill-foreground text-sm'
+      >
         MP, AP
       </text>
 

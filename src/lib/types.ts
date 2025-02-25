@@ -23,8 +23,9 @@ export type QuizState = {
   answeredQuestions: number[];
   correctAnswers: number;
   currentQuestion: number;
-  selectedAnswer: number | null;
-  showFeedback: boolean;
   randomizedQuestions: RandomizedQuestion[];
+  selectedAnswer: number | null;
   selectedCategory: Category | 'all';
+  showFeedback: boolean;
+  userAnswers: Record<number, number>;
 };
