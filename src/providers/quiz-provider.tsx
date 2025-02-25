@@ -245,11 +245,13 @@ export const QuizProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const handleExamCancel = () => {
+    const newCurrentQuestion = 0;
+
     updateQuizState({
-      currentQuestion: 0,
+      currentQuestion: newCurrentQuestion,
       examComplete: false,
       examMode: false,
-      showFeedback: true,
+      showFeedback: answeredQuestionsSet.has(newCurrentQuestion),
     });
   };
 
