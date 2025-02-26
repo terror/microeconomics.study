@@ -24,19 +24,13 @@ import Markdown from 'react-markdown';
 interface QuestionHelpDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  questionText: string;
-  correctAnswer: string | null;
-  selectedAnswer: string | null;
 }
 
 export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
   open,
   onOpenChange,
-  questionText,
-  correctAnswer,
-  selectedAnswer,
 }) => {
-  const { updateQuizState, quizState } = useQuiz();
+  const { updateQuizState, currentQuestion, quizState } = useQuiz();
 
   const { generateHint, generateExplanation, initialized, initProgress } =
     useLLM();
@@ -49,6 +43,19 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
   const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
   const [isLoadingHint, setIsLoadingHint] = useState(false);
 
+  const correctAnswer = quizState.showFeedback
+    ? currentQuestion.options[currentQuestion.correctIndex]
+    : null;
+
+  const selectedAnswer =
+    quizState.selectedAnswer !== null
+      ? currentQuestion.options[quizState.selectedAnswer]
+      : null;
+
+  const hasHint = quizState.generatedHints && currentQuestion.id in quizState.generatedHints;
+
+  const hasExplanation = quizState.generatedExplanations && currentQuestion.id in quizState.generatedExplanations;
+
   const handleGetHint = async () => {
     if (!initialized) return;
 
@@ -56,10 +63,18 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
     setHintError(false);
 
     try {
-      const response = await generateHint(questionText);
+      const response = await generateHint(
+        currentQuestion.question,
+        currentQuestion.options
+      );
 
       if (response.status === 'success') {
-        updateQuizState({ generatedHint: response.text });
+        updateQuizState({
+          generatedHints: {
+            ...quizState.generatedHints,
+            [currentQuestion.id]: response.text,
+          },
+        });
       } else {
         setHintError(true);
       }
@@ -79,13 +94,18 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
 
     try {
       const response = await generateExplanation(
-        questionText,
+        currentQuestion.question,
         correctAnswer,
         selectedAnswer
       );
 
       if (response.status === 'success') {
-        updateQuizState({ generatedExplanation: response.text });
+        updateQuizState({
+          generatedExplanations: {
+            ...quizState.generatedExplanations,
+            [currentQuestion.id]: response.text,
+          },
+        });
       } else {
         setExplanationError(true);
       }
@@ -98,12 +118,22 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
   };
 
   const retryHint = () => {
-    updateQuizState({ generatedHint: undefined });
+    updateQuizState({
+      generatedHints: {
+        ...quizState.generatedHints,
+        [currentQuestion.id]: undefined,
+      },
+    });
     handleGetHint();
   };
 
   const retryExplanation = () => {
-    updateQuizState({ generatedExplanation: undefined });
+    updateQuizState({
+      generatedExplanations: {
+        ...quizState.generatedExplanations,
+        [currentQuestion.id]: undefined,
+      },
+    });
     handleGetExplanation();
   };
 
@@ -174,8 +204,8 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
         </TabsList>
 
         <TabsContent value='hint' className='mt-0 space-y-4'>
-          {!quizState.generatedHint ? (
-            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center h-[250px]'>
+          {!hasHint ? (
+            <div className='flex h-[250px] flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center'>
               <Lightbulb className='h-10 w-10 text-muted-foreground' />
               <div>
                 <h3 className='text-lg font-medium'>Need a hint?</h3>
@@ -210,7 +240,9 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
                   <span>Hint</span>
                 </div>
                 <div className='mt-2 whitespace-pre-wrap text-sm'>
-                  <Markdown>{quizState.generatedHint}</Markdown>
+                  <Markdown>
+                    {quizState.generatedHints[currentQuestion.id]}
+                  </Markdown>
                 </div>
               </div>
 
@@ -250,7 +282,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
 
         <TabsContent value='explanation' className='mt-0 space-y-4'>
           {!correctAnswer ? (
-            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center h-[250px]'>
+            <div className='flex h-[250px] flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center'>
               <BookOpen className='h-10 w-10 text-muted-foreground' />
               <div>
                 <h3 className='text-lg font-medium'>Answer first</h3>
@@ -259,8 +291,8 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
                 </p>
               </div>
             </div>
-          ) : !quizState.generatedExplanation ? (
-            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center h-[250px]'>
+          ) : !hasExplanation ? (
+            <div className='flex h-[250px] flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center'>
               <BookOpen className='h-10 w-10 text-muted-foreground' />
               <div>
                 <h3 className='text-lg font-medium'>Understand the answer</h3>
@@ -294,7 +326,9 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
                   <span>Explanation</span>
                 </div>
                 <div className='mt-2 whitespace-pre-wrap text-sm'>
-                  <Markdown>{quizState.generatedExplanation}</Markdown>
+                  <Markdown>
+                    {quizState.generatedExplanations[currentQuestion.id]}
+                  </Markdown>
                 </div>
               </div>
 
@@ -337,7 +371,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className='sm:max-w-lg rounded-md'>
+      <DialogContent className='rounded-md sm:max-w-lg'>
         <DialogHeader>
           <DialogTitle className='flex items-center gap-2'>
             <span className='flex h-7 w-7 items-center justify-center rounded-full bg-primary/10'>

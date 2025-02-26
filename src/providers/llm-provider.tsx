@@ -54,7 +54,10 @@ interface LLMProviderState {
     correctAnswer: string,
     selectedAnswer: string | null
   ) => Promise<GenerationResponse>;
-  generateHint: (questionText: string) => Promise<GenerationResponse>;
+  generateHint: (
+    questionText: string,
+    options: string[]
+  ) => Promise<GenerationResponse>;
   generateText: (
     prompt: string,
     options?: GenerationOptions
@@ -297,11 +300,17 @@ export const LLMProvider: React.FC<{
   );
 
   const generateHint = useCallback(
-    async (questionText: string): Promise<GenerationResponse> => {
+    async (
+      questionText: string,
+      options: string[]
+    ): Promise<GenerationResponse> => {
       const prompt = `
 You are a helpful microeconomics tutor. Give a short hint for the following question without revealing the answer:
 
 Question: ${questionText}
+
+The available options for this question are the following:
+  ${options.map((option) => `- ${option}`).join('\n  ')}
 
 Provide a concise hint (2-3 sentences) that guides the student's thinking without giving away the answer.
 Your hint:`;

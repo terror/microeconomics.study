@@ -46,8 +46,8 @@ export type QuizState = {
   examDuration?: number;
   examMode?: boolean;
   examTimeRemaining?: number;
-  generatedExplanation?: string;
-  generatedHint?: string;
+  generatedExplanations: Record<number, string | undefined>;
+  generatedHints: Record<number, string | undefined>;
   randomizedQuestions: RandomizedQuestion[];
   selectedAnswer: number | null;
   selectedCategory: Category | 'all';

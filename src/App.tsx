@@ -87,17 +87,6 @@ const App = () => {
               <QuestionHelpDialog
                 open={questionHelpModalOpen}
                 onOpenChange={setQuestionHelpModalOpen}
-                questionText={currentQuestion.question}
-                correctAnswer={
-                  quizState.showFeedback
-                    ? currentQuestion.options[currentQuestion.correctIndex]
-                    : null
-                }
-                selectedAnswer={
-                  quizState.selectedAnswer !== null
-                    ? currentQuestion.options[quizState.selectedAnswer]
-                    : null
-                }
               />
 
               <div className='mb-6'>

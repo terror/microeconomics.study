@@ -11,13 +11,15 @@ export const createCategoryState = (category: Category | 'all'): QuizState => ({
   answeredQuestions: [],
   correctAnswers: 0,
   currentQuestion: 0,
-  userAnswers: {},
-  selectedAnswer: null,
-  showFeedback: false,
-  randomizedQuestions: randomizeQuestions(category),
-  selectedCategory: category,
-  examMode: false,
   examComplete: false,
+  examMode: false,
+  generatedExplanations: {},
+  generatedHints: {},
+  randomizedQuestions: randomizeQuestions(category),
+  selectedAnswer: null,
+  selectedCategory: category,
+  showFeedback: false,
+  userAnswers: {},
 });
 
 export const getCategories: () => (Category | 'all')[] = () => [
