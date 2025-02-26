@@ -119,13 +119,11 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
       return (
         <div className='space-y-4'>
           <div className='flex items-center gap-2'>
-            <Loader2 className='h-5 w-5 animate-spin text-primary' />
             <p className='text-sm font-medium'>{initProgress.text}</p>
           </div>
 
-          <div className='space-y-2'>
+          <div>
             <div className='flex justify-between text-sm'>
-              <span>Loading AI model</span>
               <span className='font-medium text-primary'>
                 {Math.round(initProgress.progress * 100)}%
               </span>
