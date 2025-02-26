@@ -64,12 +64,14 @@ const App = () => {
                     Question {quizState.currentQuestion + 1} of{' '}
                     {quizState.randomizedQuestions.length}
                   </span>
-                  <span
-                    className='cursor-pointer'
-                    onClick={() => setQuestionHelpModalOpen(true)}
-                  >
-                    <Lightbulb className='h-4 w-4 text-yellow-500' />
-                  </span>
+                  {!quizState.examMode ? (
+                    <span
+                      className='cursor-pointer'
+                      onClick={() => setQuestionHelpModalOpen(true)}
+                    >
+                      <Lightbulb className='h-4 w-4 text-yellow-500' />
+                    </span>
+                  ) : null}
                 </span>
 
                 {answeredQuestionsSet.size !== 0 ? (
@@ -162,7 +164,7 @@ const App = () => {
                   ) : (
                     <RotateCcw className='h-4 w-4' />
                   )}
-                  {quizState.examMode ? 'Cancel Exam' : 'Reset'}
+                  {quizState.examMode ? 'Cancel' : 'Reset'}
                 </Button>
 
                 <Button

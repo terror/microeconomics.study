@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/dialog';
 import { Progress } from '@/components/ui/progress';
 import { useLLM } from '@/providers/llm-provider';
+import { useQuiz } from '@/providers/quiz-provider';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import {
   AlertCircle,
@@ -35,18 +36,18 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
   correctAnswer,
   selectedAnswer,
 }) => {
+  const { updateQuizState, quizState } = useQuiz();
+
   const { generateHint, generateExplanation, initialized, initProgress } =
     useLLM();
 
   const [activeTab, setActiveTab] = useState<'hint' | 'explanation'>('hint');
-  const [hintText, setHintText] = useState('');
-  const [explanationText, setExplanationText] = useState('');
-  const [isLoadingHint, setIsLoadingHint] = useState(false);
-  const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
-  const [hintError, setHintError] = useState(false);
+
   const [explanationError, setExplanationError] = useState(false);
-  const [hintGenerated, setHintGenerated] = useState(false);
-  const [explanationGenerated, setExplanationGenerated] = useState(false);
+  const [hintError, setHintError] = useState(false);
+
+  const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
+  const [isLoadingHint, setIsLoadingHint] = useState(false);
 
   const handleGetHint = async () => {
     if (!initialized) return;
@@ -58,8 +59,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
       const response = await generateHint(questionText);
 
       if (response.status === 'success') {
-        setHintText(response.text);
-        setHintGenerated(true);
+        updateQuizState({ generatedHint: response.text });
       } else {
         setHintError(true);
       }
@@ -85,8 +85,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
       );
 
       if (response.status === 'success') {
-        setExplanationText(response.text);
-        setExplanationGenerated(true);
+        updateQuizState({ generatedExplanation: response.text });
       } else {
         setExplanationError(true);
       }
@@ -99,14 +98,12 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
   };
 
   const retryHint = () => {
-    setHintText('');
-    setHintGenerated(false);
+    updateQuizState({ generatedHint: undefined });
     handleGetHint();
   };
 
   const retryExplanation = () => {
-    setExplanationText('');
-    setExplanationGenerated(false);
+    updateQuizState({ generatedExplanation: undefined });
     handleGetExplanation();
   };
 
@@ -177,14 +174,14 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
         </TabsList>
 
         <TabsContent value='hint' className='mt-0 space-y-4'>
-          {!hintGenerated ? (
+          {!quizState.generatedHint ? (
             <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center'>
               <Lightbulb className='h-10 w-10 text-muted-foreground' />
               <div>
                 <h3 className='text-lg font-medium'>Need a hint?</h3>
                 <p className='mt-1 text-sm text-muted-foreground'>
                   Get a helpful nudge in the right direction without revealing
-                  the answer.
+                  the answer
                 </p>
               </div>
               <Button
@@ -199,7 +196,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
                   </>
                 ) : (
                   <>
-                    <ArrowRight className='mr-2 h-4 w-4' />
+                    <ArrowRight className='h-4 w-4' />
                     Get a hint
                   </>
                 )}
@@ -207,13 +204,13 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
             </div>
           ) : (
             <div className='space-y-4'>
-              <div className='rounded-md bg-muted p-4'>
+              <div className='max-h-[600px] overflow-y-scroll rounded-md bg-muted p-4'>
                 <div className='flex items-center gap-2 text-sm font-medium'>
                   <Lightbulb className='h-4 w-4 text-amber-500' />
                   <span>Hint</span>
                 </div>
-                <div className='mt-2 text-sm'>
-                  <Markdown>{hintText}</Markdown>
+                <div className='mt-2 whitespace-pre-wrap text-sm'>
+                  <Markdown>{quizState.generatedHint}</Markdown>
                 </div>
               </div>
 
@@ -258,17 +255,17 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
               <div>
                 <h3 className='text-lg font-medium'>Answer first</h3>
                 <p className='mt-1 text-sm text-muted-foreground'>
-                  Submit your answer to see the explanation
+                  Submit your answer to be able to generate an explanation
                 </p>
               </div>
             </div>
-          ) : !explanationGenerated ? (
+          ) : !quizState.generatedExplanation ? (
             <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center'>
               <BookOpen className='h-10 w-10 text-muted-foreground' />
               <div>
                 <h3 className='text-lg font-medium'>Understand the answer</h3>
                 <p className='mt-1 text-sm text-muted-foreground'>
-                  Get a detailed explanation of the economic concepts involved.
+                  Get a detailed explanation of the economic concepts involved
                 </p>
               </div>
               <Button
@@ -283,21 +280,21 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
                   </>
                 ) : (
                   <>
-                    <ArrowRight className='mr-2 h-4 w-4' />
-                    Show explanation
+                    <ArrowRight className='h-4 w-4' />
+                    Get an explanation
                   </>
                 )}
               </Button>
             </div>
           ) : (
             <div className='space-y-4'>
-              <div className='rounded-md bg-muted p-4'>
+              <div className='max-h-[600px] overflow-y-scroll rounded-md bg-muted p-4'>
                 <div className='flex items-center gap-2 text-sm font-medium'>
                   <BookOpen className='h-4 w-4 text-blue-500' />
                   <span>Explanation</span>
                 </div>
-                <div className='mt-2 text-sm'>
-                  <Markdown>{explanationText}</Markdown>
+                <div className='mt-2 whitespace-pre-wrap text-sm'>
+                  <Markdown>{quizState.generatedExplanation}</Markdown>
                 </div>
               </div>
 
@@ -354,8 +351,8 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
           </DialogTitle>
           <DialogDescription>
             {activeTab === 'hint'
-              ? 'Get assistance without revealing the answer.'
-              : 'Understand the economic concepts behind this question.'}
+              ? 'Get assistance without revealing the answer'
+              : 'Understand the economic concepts behind this question'}
           </DialogDescription>
         </DialogHeader>
         {renderContent()}

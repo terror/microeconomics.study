@@ -42,12 +42,15 @@ export type QuizState = {
   answeredQuestions: number[];
   correctAnswers: number;
   currentQuestion: number;
+  examComplete?: boolean;
+  examDuration?: number;
+  examMode?: boolean;
+  examTimeRemaining?: number;
+  generatedExplanation?: string;
+  generatedHint?: string;
   randomizedQuestions: RandomizedQuestion[];
   selectedAnswer: number | null;
   selectedCategory: Category | 'all';
   showFeedback: boolean;
   userAnswers: Record<number, number>;
-  examMode?: boolean;
-  examDuration?: number;
-  examComplete?: boolean;
 };

@@ -31,6 +31,7 @@ interface QuizProviderState {
   handleQuestionClick: (questionIndex: number) => void;
   handleReset: () => void;
   handleStartExam: (duration: number) => void;
+  updateQuizState: (updates: Partial<QuizState>) => void;
 }
 
 const QuizContext = createContext<QuizProviderState | null>(null);
@@ -322,6 +323,7 @@ export const QuizProvider = ({ children }: { children: React.ReactNode }) => {
     handleQuestionClick,
     handleReset,
     handleStartExam,
+    updateQuizState,
   };
 
   return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;
