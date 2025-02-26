@@ -175,7 +175,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
 
         <TabsContent value='hint' className='mt-0 space-y-4'>
           {!quizState.generatedHint ? (
-            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center'>
+            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center h-[250px]'>
               <Lightbulb className='h-10 w-10 text-muted-foreground' />
               <div>
                 <h3 className='text-lg font-medium'>Need a hint?</h3>
@@ -250,7 +250,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
 
         <TabsContent value='explanation' className='mt-0 space-y-4'>
           {!correctAnswer ? (
-            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center'>
+            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center h-[250px]'>
               <BookOpen className='h-10 w-10 text-muted-foreground' />
               <div>
                 <h3 className='text-lg font-medium'>Answer first</h3>
@@ -260,7 +260,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
               </div>
             </div>
           ) : !quizState.generatedExplanation ? (
-            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center'>
+            <div className='flex flex-col items-center justify-center space-y-4 rounded-md border border-dashed p-8 text-center h-[250px]'>
               <BookOpen className='h-10 w-10 text-muted-foreground' />
               <div>
                 <h3 className='text-lg font-medium'>Understand the answer</h3>
@@ -337,7 +337,7 @@ export const QuestionHelpDialog: React.FC<QuestionHelpDialogProps> = ({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className='sm:max-w-lg'>
+      <DialogContent className='sm:max-w-lg rounded-md'>
         <DialogHeader>
           <DialogTitle className='flex items-center gap-2'>
             <span className='flex h-7 w-7 items-center justify-center rounded-full bg-primary/10'>
