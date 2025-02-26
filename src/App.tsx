@@ -1,11 +1,19 @@
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, RotateCcw, XCircle } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  Lightbulb,
+  RotateCcw,
+  XCircle,
+} from 'lucide-react';
+import { useState } from 'react';
 
 import { CategoryTabs } from './components/category-tabs';
 import { ExamComplete } from './components/exam-complete';
 import { ExamSettings } from './components/exam-settings';
 import { FigureDisplay } from './components/figure-display';
 import { Layout } from './components/layout';
+import { QuestionHelpDialog } from './components/question-help-dialog';
 import { QuestionTimeline } from './components/question-timeline';
 import { useQuiz } from './providers/quiz-provider';
 
@@ -24,6 +32,8 @@ const App = () => {
     handleReset,
     handleStartExam,
   } = useQuiz();
+
+  const [questionHelpModalOpen, setQuestionHelpModalOpen] = useState(false);
 
   return (
     <Layout>
@@ -49,9 +59,17 @@ const App = () => {
               {quizState.randomizedQuestions.length > 1 && <QuestionTimeline />}
 
               <div className='mb-4 flex items-center justify-between'>
-                <span className='text-sm text-muted-foreground'>
-                  Question {quizState.currentQuestion + 1} of{' '}
-                  {quizState.randomizedQuestions.length}
+                <span className='flex items-center gap-x-2 text-sm text-muted-foreground'>
+                  <span>
+                    Question {quizState.currentQuestion + 1} of{' '}
+                    {quizState.randomizedQuestions.length}
+                  </span>
+                  <span
+                    className='cursor-pointer'
+                    onClick={() => setQuestionHelpModalOpen(true)}
+                  >
+                    <Lightbulb className='h-4 w-4 text-yellow-500' />
+                  </span>
                 </span>
 
                 {answeredQuestionsSet.size !== 0 ? (
@@ -63,6 +81,22 @@ const App = () => {
                   </div>
                 ) : null}
               </div>
+
+              <QuestionHelpDialog
+                open={questionHelpModalOpen}
+                onOpenChange={setQuestionHelpModalOpen}
+                questionText={currentQuestion.question}
+                correctAnswer={
+                  quizState.showFeedback
+                    ? currentQuestion.options[currentQuestion.correctIndex]
+                    : null
+                }
+                selectedAnswer={
+                  quizState.selectedAnswer !== null
+                    ? currentQuestion.options[quizState.selectedAnswer]
+                    : null
+                }
+              />
 
               <div className='mb-6'>
                 {/* TODO: Markdown rendering? */}

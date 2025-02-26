@@ -115,8 +115,8 @@ export const LLMDialog: React.FC<LLMDialogProps> = ({ open, onOpenChange }) => {
                     </span>
                   </div>
                   <p className='mt-1 text-muted-foreground'>
-                    Your browser may not fully support WebLLM. Some 
-                    features may be disabled.
+                    Your browser may not fully support WebLLM. Some features may
+                    be disabled.
                   </p>
                 </div>
               )}

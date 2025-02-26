@@ -308,7 +308,7 @@ Your hint:`;
 
       return generateText(prompt, {
         temperature: 0.5,
-        max_tokens: 250,
+        max_tokens: 1000,
       });
     },
     [generateText]
@@ -340,7 +340,7 @@ Please explain:
 
       return generateText(prompt, {
         temperature: 0.7,
-        max_tokens: 500,
+        max_tokens: 2500,
       });
     },
     [generateText]
