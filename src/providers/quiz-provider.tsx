@@ -1,6 +1,6 @@
 import { usePersistedState } from '@/hooks/use-persisted-state';
 import { questions as originalQuestions } from '@/lib/questions';
-import { Category, QuizState, RandomizedQuestion } from '@/lib/types';
+import { Category, RandomizedQuestion } from '@/lib/types';
 import { createCategoryState, getCategories } from '@/lib/utils';
 import { createContext, useContext } from 'react';
 
@@ -9,8 +9,24 @@ type CategoryProgress = Record<
   { answered: number; total: number; correct: number }
 >;
 
+export type QuizState = {
+  answeredQuestions: number[];
+  correctAnswers: number;
+  currentQuestion: number;
+  examComplete?: boolean;
+  examDuration?: number;
+  examMode?: boolean;
+  examTimeRemaining?: number;
+  generatedExplanations: Record<number, string | undefined>;
+  generatedHints: Record<number, string | undefined>;
+  randomizedQuestions: RandomizedQuestion[];
+  selectedAnswer: number | null;
+  selectedCategory: Category | 'all';
+  showFeedback: boolean;
+  userAnswers: Record<number, number>;
+};
+
 interface QuizProviderState {
-  // State
   activeCategory: Category | 'all';
   answeredQuestionsSet: Set<number>;
   categories: (Category | 'all')[];
@@ -20,8 +36,6 @@ interface QuizProviderState {
   isCorrect: boolean;
   quizState: QuizState;
   totalAnswered: number;
-
-  // Event handlers
   handleAnswerClick: (answerIndex: number) => void;
   handleCategoryChange: (category: Category | 'all') => void;
   handleEndExam: () => void;
@@ -302,7 +316,6 @@ export const QuizProvider = ({ children }: { children: React.ReactNode }) => {
     quizState.randomizedQuestions[quizState.currentQuestion];
 
   const value = {
-    // State
     activeCategory: persistedState.activeCategory,
     answeredQuestionsSet,
     categories: getCategories(),
@@ -312,8 +325,6 @@ export const QuizProvider = ({ children }: { children: React.ReactNode }) => {
     isCorrect: quizState.selectedAnswer === currentQuestion?.correctIndex,
     quizState,
     totalAnswered,
-
-    // Event handlers
     handleAnswerClick,
     handleCategoryChange,
     handleEndExam,

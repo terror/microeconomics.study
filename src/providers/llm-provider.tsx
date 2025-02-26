@@ -9,7 +9,7 @@ import React, {
 
 export type WebLLMModelOption = 'Llama-3.1-8B-Instruct-q4f32_1-MLC';
 
-export interface InitProgress {
+export interface WebLLMInitProgress {
   progress: number;
   text: string;
   status: 'initializing' | 'success' | 'error' | 'not-started';
@@ -36,8 +36,7 @@ export interface GenerationResponse {
 }
 
 interface LLMProviderState {
-  // State
-  initProgress: InitProgress;
+  initProgress: WebLLMInitProgress;
   initialized: boolean;
   supported: boolean;
   systemInfo: {
@@ -47,63 +46,15 @@ interface LLMProviderState {
     sharedArrayBufferAvailable: boolean;
     gpuVendor: string | null;
   };
-
-  // Event handlers
-  generateExplanation: (
-    questionText: string,
-    correctAnswer: string,
-    selectedAnswer: string | null
-  ) => Promise<GenerationResponse>;
-  generateHint: (
-    questionText: string,
-    options: string[]
-  ) => Promise<GenerationResponse>;
-  generateText: (
+  generate?: (
     prompt: string,
     options?: GenerationOptions
   ) => Promise<GenerationResponse>;
-  initialize: (modelOption?: WebLLMModelOption) => Promise<boolean>;
-  resetChat: () => Promise<void>;
+  initialize?: (modelOption?: WebLLMModelOption) => Promise<boolean>;
+  resetChat?: () => Promise<void>;
 }
 
-const INITIAL_STATE: LLMProviderState = {
-  // State
-  initProgress: {
-    progress: 0,
-    text: 'Not initialized',
-    status: 'not-started',
-  },
-  initialized: false,
-  supported: false,
-  systemInfo: {
-    supported: false,
-    webGPUAvailable: false,
-    webGLAvailable: false,
-    sharedArrayBufferAvailable: false,
-    gpuVendor: null,
-  },
-
-  // Event handlers
-  generateExplanation: async () => ({
-    text: '',
-    status: 'error',
-    error: 'LLM not initialized',
-  }),
-  generateHint: async () => ({
-    text: '',
-    status: 'error',
-    error: 'LLM not initialized',
-  }),
-  generateText: async () => ({
-    text: '',
-    status: 'error',
-    error: 'LLM not initialized',
-  }),
-  initialize: async () => false,
-  resetChat: async () => {},
-};
-
-const LLMContext = createContext<LLMProviderState>(INITIAL_STATE);
+const LLMContext = createContext<LLMProviderState | null>(null);
 
 export const useLLM = () => {
   const context = useContext(LLMContext);
@@ -128,7 +79,7 @@ export const LLMProvider: React.FC<{
   const [initialized, setInitialized] = useState(false);
   const [supported, setSupported] = useState(false);
 
-  const [initProgress, setInitProgress] = useState<InitProgress>({
+  const [initProgress, setInitProgress] = useState<WebLLMInitProgress>({
     progress: 0,
     text: 'Not initialized',
     status: 'not-started',
@@ -150,20 +101,14 @@ export const LLMProvider: React.FC<{
     }
 
     try {
-      // Check for SharedArrayBuffer (needed for multithreading)
-      const hasSharedArrayBuffer = typeof SharedArrayBuffer === 'function';
-
-      // Check for WebGPU support
       const hasWebGPU = 'gpu' in navigator;
 
-      // Check for WebGL support
       const canvas = document.createElement('canvas');
+
       const hasWebGL = !!(
         canvas.getContext('webgl') || canvas.getContext('webgl2')
       );
 
-      // WebLLM can work without SharedArrayBuffer but will be slower
-      // It can also fall back to WebGL or CPU
       const isSupported = hasWebGL || hasWebGPU;
 
       setSupported(isSupported);
@@ -172,7 +117,7 @@ export const LLMProvider: React.FC<{
         supported: isSupported,
         webGPUAvailable: hasWebGPU,
         webGLAvailable: hasWebGL,
-        sharedArrayBufferAvailable: hasSharedArrayBuffer,
+        sharedArrayBufferAvailable: typeof SharedArrayBuffer === 'function',
         gpuVendor: null, // Will be populated after initialization
       });
 
@@ -252,7 +197,21 @@ export const LLMProvider: React.FC<{
     [initialized, engine, supported, checkWebLLMSupport, defaultModel]
   );
 
-  const generateText = useCallback(
+  useEffect(() => {
+    const init = async () => {
+      await checkWebLLMSupport();
+
+      if (autoInitialize && supported) {
+        initialize(defaultModel).catch((error) => {
+          console.warn('Auto-initialization failed:', error);
+        });
+      }
+    };
+
+    init();
+  }, [autoInitialize, defaultModel, initialize, checkWebLLMSupport, supported]);
+
+  const generate = useCallback(
     async (
       prompt: string,
       options: GenerationOptions = {}
@@ -293,66 +252,9 @@ export const LLMProvider: React.FC<{
               ? error.message
               : 'Unknown error generating text',
         };
-      } finally {
       }
     },
     [engine, initialized]
-  );
-
-  const generateHint = useCallback(
-    async (
-      questionText: string,
-      options: string[]
-    ): Promise<GenerationResponse> => {
-      const prompt = `
-You are a helpful microeconomics tutor. Give a short hint for the following question without revealing the answer:
-
-Question: ${questionText}
-
-The available options for this question are the following:
-  ${options.map((option) => `- ${option}`).join('\n  ')}
-
-Provide a concise hint (2-3 sentences) that guides the student's thinking without giving away the answer.
-Your hint:`;
-
-      return generateText(prompt, {
-        temperature: 0.5,
-        max_tokens: 1000,
-      });
-    },
-    [generateText]
-  );
-
-  const generateExplanation = useCallback(
-    async (
-      questionText: string,
-      correctAnswer: string,
-      selectedAnswer: string | null
-    ): Promise<GenerationResponse> => {
-      const isCorrect = selectedAnswer === correctAnswer;
-
-      const prompt = `
-You are a microeconomics professor explaining a concept to a student.
-Provide a detailed explanation for the following question:
-
-Question: ${questionText}
-
-The correct answer is: "${correctAnswer}"
-
-${selectedAnswer ? `The student selected: "${selectedAnswer}" (which is ${isCorrect ? 'correct' : 'incorrect'})` : 'The student has not selected an answer yet.'}
-
-Please explain:
-1. Why the correct answer is right
-2. The key economic concept(s) being tested
-3. How to approach similar problems in the future
-`;
-
-      return generateText(prompt, {
-        temperature: 0.7,
-        max_tokens: 2500,
-      });
-    },
-    [generateText]
   );
 
   const resetChat = useCallback(async (): Promise<void> => {
@@ -365,31 +267,12 @@ Please explain:
     }
   }, [engine]);
 
-  useEffect(() => {
-    const init = async () => {
-      await checkWebLLMSupport();
-
-      if (autoInitialize && supported) {
-        initialize(defaultModel).catch((error) => {
-          console.warn('Auto-initialization failed:', error);
-        });
-      }
-    };
-
-    init();
-  }, [autoInitialize, defaultModel, initialize, checkWebLLMSupport, supported]);
-
   const value: LLMProviderState = {
-    // State
     initProgress,
     initialized,
     supported,
     systemInfo,
-
-    // Event handlers
-    generateExplanation,
-    generateHint,
-    generateText,
+    generate,
     initialize,
     resetChat,
   };

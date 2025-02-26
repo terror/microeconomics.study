@@ -1,5 +1,6 @@
 import { questions as originalQuestions } from '@/lib/questions';
-import { Category, QuizState, RandomizedQuestion } from '@/lib/types';
+import { Category, RandomizedQuestion } from '@/lib/types';
+import { QuizState } from '@/providers/quiz-provider';
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 

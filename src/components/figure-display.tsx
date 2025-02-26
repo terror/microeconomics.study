@@ -15,7 +15,25 @@ import { Figure32_1 } from '@/figures/figure-32-1';
 import { Figure32_5 } from '@/figures/figure-32-5';
 import { FigurePayoff2 } from '@/figures/figure-payoff-2';
 import { FigurePayoffMatrix } from '@/figures/figure-payoff-matrix';
-import type { FigureId } from '@/lib/types';
+
+export type FigureId =
+  | 'figure-10-5'
+  | 'figure-10-6'
+  | 'figure-10-7'
+  | 'figure-16-1'
+  | 'figure-17-1'
+  | 'figure-3-1'
+  | 'figure-32-1'
+  | 'figure-32-5'
+  | 'figure-4-2'
+  | 'figure-5-1'
+  | 'figure-5-5'
+  | 'figure-6-2'
+  | 'figure-7-1'
+  | 'figure-7-2'
+  | 'figure-9-2'
+  | 'figure-payoff-2'
+  | 'figure-payoff-matrix';
 
 const getFigureFromId = (id: FigureId): JSX.Element => {
   switch (id) {

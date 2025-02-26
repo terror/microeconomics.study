@@ -14,3 +14,8 @@ dev:
 fmt:
   prettier --write .
 
+lint:
+  bunx eslint .
+
+unused-deps:
+  bunx knip --production --dependencies --files
